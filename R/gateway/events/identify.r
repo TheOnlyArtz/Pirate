@@ -1,7 +1,9 @@
 library(rjson)
 
+source("gateway/events/heartbeat.r")
+
 # OP 10
-identify <- function(client) {
+identify <- function(data, client) {
   identifyData = list(
     op=2,
     d = list(
@@ -13,6 +15,8 @@ identify <- function(client) {
       )
     )
   )
-  
+
+  client$heartbeat = data$d$heartbeat_interval
   client$ws$send(toJSON(identifyData))
+  heartbeat(client$heartbeat, client)
 }
