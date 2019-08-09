@@ -1,2 +1,1 @@
-export(Client)
-export(connect)
+exportPattern("^[[:alpha:]]+")
