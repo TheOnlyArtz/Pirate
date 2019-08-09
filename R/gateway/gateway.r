@@ -1,7 +1,7 @@
 library(websocket)
 library(rjson)
 
-source("gateway/eventHandler.r")
+source("R/gateway/eventHandler.r")
 
 connect <- function(client) {
   client$ws = WebSocket$new(

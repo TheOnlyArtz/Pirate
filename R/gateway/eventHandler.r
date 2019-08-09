@@ -1,4 +1,4 @@
-source("gateway/events/index.r")
+source("R/gateway/events/index.r")
 
 handle <- function(op, data, client) {
 

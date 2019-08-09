@@ -1,6 +1,6 @@
 library(rjson)
 
-source("gateway/events/heartbeat.r")
+source("R/gateway/events/heartbeat.r")
 
 # OP 10
 identify <- function(data, client) {
