@@ -1,18 +1,14 @@
 library(R6)
-source("gateway/gateway.r")
+source("R/gateway/gateway.r")
 
 Client <- R6Class("Class",
   public = list(
     initialize = function(token) {
       self$token = token
-      cat(token)
     },
     token = NA,
     ws = NA,
-    user = NA
+    user = NA,
+    heartbeat = NA
   )
 )
-
-client <- Client$new("Test")
-
-connect(client)
