@@ -1,4 +1,4 @@
-source("R/pirate.r")
+source("R/event_identify.r")
 
 handle <- function(op, data, client) {
   switch(toString(op),
