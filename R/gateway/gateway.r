@@ -11,7 +11,14 @@ connect <- function(client) {
 
   client$ws$onOpen(onOpen)
 
-  client$ws$onMessage(onMessage)
+  client$ws$onError(function(event) {
+    print(event$data)
+  })
+
+  client$ws$onMessage(function(event) {
+    data = fromJSON(event$data)
+    handle(data$op, data, client)
+  })
 
   client$ws$connect()
 
@@ -22,9 +29,4 @@ connect <- function(client) {
 
 onOpen <- function(event) {
   cat("Opened a new connection against Discord\n")
-}
-
-onMessage <- function(event) {
-  data = as.data.frame(event$data)
-  handle(data$op, data)
 }
