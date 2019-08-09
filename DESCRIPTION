@@ -1,0 +1,9 @@
+Package: pirate
+Type: Package
+Title: A Discord API Wrapper
+Version: 0.0.1
+Date: 2019-08-09
+Author: Amit Katz (TheOnlyArtz)
+Maintainer: TheOnlyArtz <mmgamescash@gmail.com>
+Description: Pirate is a set of tools which makes R being able to interact with the chat platform "Discord" with ease :)
+License: MIT
