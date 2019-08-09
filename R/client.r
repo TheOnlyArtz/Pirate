@@ -1,6 +1,7 @@
 library(R6)
-source("R/gateway/gateway.r")
+source("R/gateway.r")
 
+#' @export
 Client <- R6Class("Class",
   public = list(
     initialize = function(token) {

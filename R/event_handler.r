@@ -1,7 +1,6 @@
-source("R/gateway/events/index.r")
+source("R/pirate.r")
 
 handle <- function(op, data, client) {
-
   switch(toString(op),
     "10"={identify(data, client)},
     {

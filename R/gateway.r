@@ -1,7 +1,7 @@
 library(websocket)
 library(rjson)
 
-source("R/gateway/eventHandler.r")
+source("R/event_handler.r")
 
 #' @export
 connect <- function(client) {

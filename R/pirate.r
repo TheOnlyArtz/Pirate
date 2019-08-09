@@ -1,9 +1,10 @@
-# Events
-source("R/gateway/events/index.r")
-
 # gateway
-source("R/gateway/gateway.r")
-source("R/gateway/eventHandler.r")
+source("R/gateway.r")
+source("R/event_handler.r")
 
 # Models
 source("R/client.r")
+
+# Events
+source("R/event_heartbeat")
+source("R/event_identify")
