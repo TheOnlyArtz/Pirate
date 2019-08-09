@@ -1,6 +1,8 @@
 library(websocket)
 library(rjson)
 
+source("gateway/eventHandler.r")
+
 connect <- function(client) {
   client$ws = WebSocket$new(
    "wss://gateway.discord.gg/?v=6&encoding=json",
@@ -23,5 +25,6 @@ onOpen <- function(event) {
 }
 
 onMessage <- function(event) {
-  print(fromJSON(event$data))
+  data = as.data.frame(event$data)
+  handle(data$op, data)
 }
