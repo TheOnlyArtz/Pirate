@@ -11,8 +11,6 @@
 GuildMember <- R6Class("Class",
   public = list (
     initialize = function(data, client) {
-      # self$user = client$users[[data$user$id]] <- if !is.null(client$users[[data$user$id]]) else User$new(data$user)
-
       self$nick = data$nick
       self$roles = data$roles # TODO
       self$joined_at = data$joined_at
