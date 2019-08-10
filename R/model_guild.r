@@ -1,4 +1,5 @@
 source("R/model_guildmember.r")
+source("R/model_role.r")
 
 #' A Class which represents a guild object
 #' @export
@@ -59,7 +60,6 @@ Guild <- R6Class("Class",
       self$verification_level = data$verification_level
       self$default_message_notifications = data$default_message_notifications
       self$explicit_content_filter = data$explicit_content_filter
-      self$roles = data$roles
       self$emojis = data$emojis
       self$features = data$features
       self$mfa_level = data$mfa_level
@@ -72,7 +72,6 @@ Guild <- R6Class("Class",
       self$unavailable = data$unavailable
       self$member_count = data$member_count
       self$voice_states = data$voice_states
-      # self$members = data$members
       self$channels = data$channels
       self$presences = data$presences
       self$max_presences = data$max_presences
@@ -85,6 +84,10 @@ Guild <- R6Class("Class",
 
       for (mem in data$members) {
         self$members[[mem$user$id]] <- GuildMember$new(mem, client)
+      }
+
+      for (role in data$roles) {
+        self$roles[[role$id]] <- Role$new(role, client)
       }
     },
     id = NA,
@@ -102,7 +105,6 @@ Guild <- R6Class("Class",
     verification_level = NA,
     default_message_notifications = NA,
     explicit_content_filter = NA,
-    roles = NA,
     emojis = NA,
     features = NA,
     mfa_level = NA,
@@ -115,6 +117,7 @@ Guild <- R6Class("Class",
     unavailable = NA,
     member_count = NA,
     voice_states = NA,
+    roles = list(),
     members = list(),
     channels = list(),
     presences = list(),
