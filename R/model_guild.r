@@ -41,7 +41,7 @@
 #' @slot premium_subscription_count the total number of users currently boosting this server
 Guild <- R6Class("Class",
   public = list(
-    initialize <- function(data) {
+    initialize = function(data) {
       self$id = data$id
       self$name = data$name
       self$icon = data$icon
