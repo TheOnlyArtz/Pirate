@@ -1,3 +1,6 @@
+source("R/model_user.r")
 ready <- function(data, client) {
-  print(data)
+  client$user = User$new(data$user)
+  print(paste(client$user$username, toString(client$user$discriminator), sep=" "))
+  print("Connected successfully!")
 }

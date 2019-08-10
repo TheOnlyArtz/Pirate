@@ -23,6 +23,12 @@ A Class which represents the Client
 \item{\code{heartbeat}}{The heartbeat interval of the client}
 
 \item{\code{lastSequence}}{The last sequence ID/Number from Discord}
+
+\item{\code{guilds}}{The cached guilds of the Client}
+
+\item{\code{users}}{The cached users of the Client}
+
+\item{\code{presences}}{The cached presences of the Client}
 }}
 
 \section{Warning}{
