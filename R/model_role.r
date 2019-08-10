@@ -19,6 +19,7 @@ Role <- R6Class("Class",
       self$position = data$position
       self$managed = data$managed
       self$mentionable = data$mentionable
+      self$permissions = data$permissions
     },
     id = NA,
     name = NA,
