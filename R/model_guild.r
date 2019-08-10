@@ -42,7 +42,44 @@
 Guild <- R6Class("Class",
   public = list(
     initialize <- function(data) {
-
+      self$id = data$id
+      self$name = data$name
+      self$icon = data$icon
+      self$splash = data$splash
+      self$owner = data$owner
+      self$owner_id = data$owner_id
+      self$permissions = data$permissions
+      self$region = data$region
+      self$afk_channel_id = data$afk_channel_id
+      self$afk_timeout = data$afk_timeout
+      self$embed_enabled = data$embed_enabled
+      self$embed_channel_id = data$embed_channel_id
+      self$verification_level = data$verification_level
+      self$default_message_notifications = data$default_message_notifications
+      self$explicit_content_filter = data$explicit_content_filter
+      self$roles = data$roles
+      self$emojis = data$emojis
+      self$features = data$features
+      self$mfa_level = data$mfa_level
+      self$application_id = data$application_id
+      self$widget_enabled = data$widget_enabled
+      self$widget_channel_id = data$widget_channel_id
+      self$system_channel_id = data$system_channel_id
+      self$jonied_at = data$jonied_at
+      self$large = data$large
+      self$unavailable = data$unavailable
+      self$member_count = data$member_count
+      self$voice_states = data$voice_states
+      self$members = data$members
+      self$channels = data$channels
+      self$presences = data$presences
+      self$max_presences = data$max_presences
+      self$max_members = data$max_members
+      self$vanity_url_code = data$vanity_url_code
+      self$description = data$description
+      self$banner = data$banner
+      self$premium_tier = data$premium_tier
+      self$premium_subscription_count = data$premium_subscription_count
     }
     id = NA,
     name = NA,
