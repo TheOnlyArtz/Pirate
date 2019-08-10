@@ -11,28 +11,20 @@ User
 \description{
 A Class which represents a user object
 }
-\section{id The ID of the user}{
-NA
-}
+\section{Slots}{
 
-\section{username The username of the user}{
-NA
-}
+\describe{
+\item{\code{id}}{The ID of the user}
 
-\section{discriminator The discriminator of the user (#XXXX)}{
-NA
-}
+\item{\code{username}}{The username of the user}
 
-\section{avatar The user's avatar hash}{
-NA
-}
+\item{\code{discriminator}}{The discriminator of the user (#XXXX)}
 
-\section{flags The flags on a user's account}{
-NA
-}
+\item{\code{avatar}}{The user's avatar hash}
 
-\section{premium_type The type of Nitro subscription on a user's account}{
-NA
-}
+\item{\code{flags}}{The flags on a user's account}
+
+\item{\code{premium_type}}{The type of Nitro subscription on a user's account}
+}}
 
 \keyword{datasets}
