@@ -1,12 +1,12 @@
 #' A Class which represents a user object
 #' @export
 #'
-#' @section id The ID of the user
-#' @section username The username of the user
-#' @section discriminator The discriminator of the user (#XXXX)
-#' @section avatar The user's avatar hash
-#' @section flags The flags on a user's account
-#' @section premium_type The type of Nitro subscription on a user's account
+#' @slot id The ID of the user
+#' @slot username The username of the user
+#' @slot discriminator The discriminator of the user (#XXXX)
+#' @slot avatar The user's avatar hash
+#' @slot flags The flags on a user's account
+#' @slot premium_type The type of Nitro subscription on a user's account
 User <- R6Class("Class",
   public=list(
     initialize = function(data) {
