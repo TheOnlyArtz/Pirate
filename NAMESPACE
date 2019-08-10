@@ -3,5 +3,6 @@
 export(Client)
 export(Guild)
 export(GuildMember)
+export(Role)
 export(User)
 export(connect)
