@@ -23,5 +23,6 @@ User <- R6Class("Class",
     avatar = NA,
     flags = NA,
     premium_type = NA
-  )
+  ),
+  lock_objects = FALSE
 )

@@ -119,5 +119,6 @@ Guild <- R6Class("Class",
     banner = NA,
     premium_tier = NA,
     premium_subscription_count = NA
-  )
+  ),
+  lock_objects = FALSE
 )
