@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Class which represents the Client — Client • pirate</title>
+<title>A Class which represents a guild member — GuildMember • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="A Class which represents the Client — Client" />
+<meta property="og:title" content="A Class which represents a guild member — GuildMember" />
 
-<meta property="og:description" content="A Class which represents the Client" />
+<meta property="og:description" content="A Class which represents a guild member" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -98,18 +98,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A Class which represents the Client</h1>
+    <h1>A Class which represents a guild member</h1>
     
-    <div class="hidden name"><code>Client.Rd</code></div>
+    <div class="hidden name"><code>GuildMember.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A Class which represents the Client</p>
+    <p>A Class which represents a guild member</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>Client</span></pre>
+    <pre class="usage"><span class='no'>GuildMember</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
@@ -120,28 +120,20 @@
     
 
 <dl class='dl-horizontal'>
-<dt><code>token</code></dt><dd><p>The Client's token</p></dd>
+<dt><code>user</code></dt><dd><p>the user this guild member represents</p></dd>
 
-<dt><code>ws</code></dt><dd><p>The WebSocket connection of the client</p></dd>
+<dt><code>nick</code></dt><dd><p>this users guild nickname (if one is set)</p></dd>
 
-<dt><code>user</code></dt><dd><p>The client's user object</p></dd>
+<dt><code>roles</code></dt><dd><p>array of role object ids</p></dd>
 
-<dt><code>heartbeat</code></dt><dd><p>The heartbeat interval of the client</p></dd>
+<dt><code>joined_at</code></dt><dd><p>when the user joined the guild</p></dd>
 
-<dt><code>lastSequence</code></dt><dd><p>The last sequence ID/Number from Discord</p></dd>
+<dt><code>premium_since</code></dt><dd><p>when the user used their Nitro boost on the server</p></dd>
 
-<dt><code>guilds</code></dt><dd><p>The cached guilds of the Client</p></dd>
+<dt><code>deaf</code></dt><dd><p>whether the user is deafened in voice channels</p></dd>
 
-<dt><code>users</code></dt><dd><p>The cached users of the Client</p></dd>
-
-<dt><code>presences</code></dt><dd><p>The cached presences of the Client</p></dd>
+<dt><code>mute</code></dt><dd><p>whether the user is muted in voice channels</p></dd>
 </dl>
-    
-    <h2 class="hasAnchor" id="warning"><a class="anchor" href="#warning"></a>Warning</h2>
-
-    
-
-<p>Do not mutate heartbeat value</p>
     
 
   </div>
@@ -152,8 +144,6 @@
       <li><a href="#format">Format</a></li>
 
       <li><a href="#slots">Slots</a></li>
-
-      <li><a href="#warning">Warning</a></li>
           </ul>
 
   </div>
