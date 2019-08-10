@@ -10,12 +10,12 @@
 User <- R6Class("Class",
   public=list(
     initialize = function(data) {
-      id = data$id
-      username = data$username
-      discriminator = data$discriminator
-      avatar = data$discriminator
-      flags = data$flags
-      premium_type = data$premium_type
+      self$id = data$id
+      self$username = data$username
+      self$discriminator = data$discriminator
+      self$avatar = data$discriminator
+      self$flags = data$flags
+      self$premium_type = data$premium_type
     },
     id = NA,
     username = NA,
