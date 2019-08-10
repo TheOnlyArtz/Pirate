@@ -120,5 +120,4 @@ Guild <- R6Class("Class",
     premium_tier = NA,
     premium_subscription_count = NA
   )
-
 )
