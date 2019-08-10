@@ -8,6 +8,9 @@ source("R/gateway.r")
 #' @slot user #TODO
 #' @slot heartbeat The heartbeat interval of the client
 #' @slot lastSequence The last sequence ID/Number from Discord
+#' @slot guilds The cached guilds of the Client
+#' @slot users The cached users of the Client
+#' @slot presences The cached presences of the Client
 #' @section Warning:
 #' Do not mutate heartbeat value
 Client <- R6Class("Class",
@@ -19,6 +22,9 @@ Client <- R6Class("Class",
     ws = NA,
     user = NA,
     heartbeat = NA,
-    lastSequence = NA
+    lastSequence = NA,
+    guilds = list(),
+    users = list(),
+    presences = list()
   )
 )
