@@ -25,6 +25,10 @@ Client <- R6Class("Class",
     lastSequence = NA,
     guilds = list(),
     users = list(),
-    presences = list()
-  )
+    presences = list(),
+    add_guild = function (id, g) {
+      self$guilds[[id]] <- g
+    }
+  ),
+  lock_objects = FALSE
 )
