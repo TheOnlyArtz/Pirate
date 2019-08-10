@@ -21,6 +21,8 @@ A Class which represents the Client
 \item{\code{user}}{#TODO}
 
 \item{\code{heartbeat}}{The heartbeat interval of the client}
+
+\item{\code{lastSequence}}{The last sequence ID/Number from Discord}
 }}
 
 \section{Warning}{
