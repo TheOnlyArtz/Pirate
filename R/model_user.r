@@ -1,4 +1,4 @@
-# A Class which represents a user object
+#' A Class which represents a user object
 #' @export
 #'
 #' @section id The ID of the user
@@ -7,7 +7,7 @@
 #' @section avatar The user's avatar hash
 #' @section flags The flags on a user's account
 #' @section premium_type The type of Nitro subscription on a user's account
-ClientUser <- R6Class("Class",
+User <- R6Class("Class",
   public=list(
     initialize = function(data) {
       id = data$id
