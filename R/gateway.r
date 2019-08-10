@@ -3,7 +3,12 @@ library(rjson)
 
 source("R/event_handler.r")
 
+#' Connect and authenticate to the websocket via a client
 #' @export
+#'
+#' @param client A Client class/object
+#' @example
+#' connect(client)
 connect <- function(client) {
   client$ws = WebSocket$new(
    "wss://gateway.discord.gg/?v=6&encoding=json",
