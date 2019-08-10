@@ -18,7 +18,7 @@ A Class which represents the Client
 
 \item{\code{ws}}{The WebSocket connection of the client}
 
-\item{\code{user}}{#TODO}
+\item{\code{user}}{The client's user object}
 
 \item{\code{heartbeat}}{The heartbeat interval of the client}
 
