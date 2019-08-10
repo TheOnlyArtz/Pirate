@@ -1,3 +1,5 @@
+source("R/model_guildmember.r")
+
 #' A Class which represents a guild object
 #' @export
 #'
@@ -70,7 +72,7 @@ Guild <- R6Class("Class",
       self$unavailable = data$unavailable
       self$member_count = data$member_count
       self$voice_states = data$voice_states
-      self$members = data$members
+      # self$members = data$members
       self$channels = data$channels
       self$presences = data$presences
       self$max_presences = data$max_presences
@@ -80,6 +82,10 @@ Guild <- R6Class("Class",
       self$banner = data$banner
       self$premium_tier = data$premium_tier
       self$premium_subscription_count = data$premium_subscription_count
+
+      for (mem in data$members) {
+        self$members[[mem$user$id]] <- GuildMember$new(mem, client)
+      }
     },
     id = NA,
     name = NA,
