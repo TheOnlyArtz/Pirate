@@ -38,7 +38,7 @@
 #' @slot description the description for the guild
 #' @slot banner banner hash
 #' @slot premium_tier premium_tier (SEE: https://discordapp.com/developers/docs/resources/guild#guild-object-premium-tier)
-#' @slot premium_subscription_count the total number of users currently boosting this server 
+#' @slot premium_subscription_count the total number of users currently boosting this server
 Guild <- R6Class("Class",
   public = list(
     initialize <- function(data) {
@@ -80,7 +80,7 @@ Guild <- R6Class("Class",
       self$banner = data$banner
       self$premium_tier = data$premium_tier
       self$premium_subscription_count = data$premium_subscription_count
-    }
+    },
     id = NA,
     name = NA,
     icon = NA,
