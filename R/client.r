@@ -7,6 +7,7 @@ source("R/gateway.r")
 #' @slot ws The WebSocket connection of the client
 #' @slot user #TODO
 #' @slot heartbeat The heartbeat interval of the client
+#' @slot lastSequence The last sequence ID/Number from Discord
 #' @section Warning:
 #' Do not mutate heartbeat value
 Client <- R6Class("Class",
@@ -17,6 +18,7 @@ Client <- R6Class("Class",
     token = NA,
     ws = NA,
     user = NA,
-    heartbeat = NA
+    heartbeat = NA,
+    lastSequence = NA
   )
 )
