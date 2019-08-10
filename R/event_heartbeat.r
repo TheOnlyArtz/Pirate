@@ -2,8 +2,6 @@ library(rjson)
 
 # OP: 1
 heartbeat <- function (delay, client) {
-  print("Heartbeating boy")
-
   # Delay and recursion.
   data = list(
     op=1, # Hearbeat
