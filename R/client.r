@@ -5,7 +5,7 @@ source("R/gateway.r")
 #' @export
 #' @slot token The Client's token
 #' @slot ws The WebSocket connection of the client
-#' @slot user #TODO
+#' @slot user The client's user object
 #' @slot heartbeat The heartbeat interval of the client
 #' @slot lastSequence The last sequence ID/Number from Discord
 #' @slot guilds The cached guilds of the Client
