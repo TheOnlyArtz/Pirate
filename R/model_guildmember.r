@@ -8,28 +8,15 @@
 #' @slot premium_since when the user used their Nitro boost on the server
 #' @slot deaf whether the user is deafened in voice channels
 #' @slot mute whether the user is muted in voice channels
-GuildMember <- R6Class("Class",
-  public = list (
-    initialize = function(data, client) {
-      self$nick = data$nick
-      self$roles = data$roles # TODO
-      self$joined_at = data$joined_at
-      self$premium_since = data$premium_since
-      self$deaf = data$deaf
-      self$mute = data$mute
-
-      if (is.null(client$users[[data$user$id]])) {
-        self$user = User$new(data$user)
-      } else {
-        self$user = client$users[[data$user$id]]
-      }
-    },
-    user = NA,
-    nick = NA,
-    roles = NA,
-    joined_at = NA,
-    premium_since = NA,
-    deaf = NA,
-    mute = NA
+GuildMember <- function(data) {
+  value <- list(
+    nick = data$nick,
+    roles = data$roles,
+    joined_at = data$joined_at,
+    premium_since = data$premium_since,
+    deaf = data$deaf,
+    mute = data$mute
   )
-)
+  attr(value, "class") <- "GuildMember"
+  value
+}
