@@ -1,5 +1,6 @@
-library(R6)
 source("R/gateway.r")
+source("R/events_emitter.r")
+
 #' A Class which represents the Client
 #' @export
 #' @slot token The Client's token
@@ -21,7 +22,8 @@ Client <- function(t) {
     lastSequence = NA,
     guilds = fastmap(),
     users = fastmap(),
-    presences = fastmap()
+    presences = fastmap(),
+    emitter = NA
   )
 
   attr(value, "class") <- "Client"
