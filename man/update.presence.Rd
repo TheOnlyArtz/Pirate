@@ -16,6 +16,7 @@ A Function which is being used to update the client's presence
 }
 \section{Resource}{
 
+
 See https://discordapp.com/developers/docs/topics/gateway#update-status
 }
 

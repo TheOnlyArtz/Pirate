@@ -8,3 +8,5 @@ Maintainer: TheOnlyArtz <mmgamescash@gmail.com>
 Description: Pirate is a set of tools which makes R being able to interact with the chat platform "Discord" with ease :)
 License: MIT
 RoxygenNote: 6.1.1
+URL: https://github.com/TheOnlyArtz/Pirate
+BugReports: https://github.com/TheOnlyArtz/Pirate/issues
