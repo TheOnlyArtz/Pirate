@@ -15,6 +15,7 @@ source("R/events_emitter.r")
 #' Do not mutate heartbeat value
 Client <- function(t) {
   value = list(
+    user = NA,
     token = t,
     ws = NA,
     user = NA,
