@@ -9,25 +9,18 @@
 #' @slot permissions permissions bit set
 #' @slot managed whether this role is managed by an integration
 #' @slot mentionable whether this role is mentionable
-Role <- R6Class("Class",
-  public = list(
-    initialize = function(data, client) {
-      self$id = data$id
-      self$name = data$name
-      self$color = data$color
-      self$hoist = data$hoist
-      self$position = data$position
-      self$managed = data$managed
-      self$mentionable = data$mentionable
-      self$permissions = data$permissions
-    },
-    id = NA,
-    name = NA,
-    color = NA,
-    hoist = NA,
-    position = NA,
-    permissions = NA,
-    managed = NA,
-    mentionable = NA
+Role <- function(data) {
+  value = list(
+    id = data$id,
+    name = data$name,
+    color = data$color,
+    hoist = data$hoist,
+    position = data$position,
+    managed = data$managed,
+    mentionable = data$mentionable,
+    permissions = data$permissions
   )
-)
+
+  attr(value, "class") <- "Role"
+  value
+}
