@@ -13,7 +13,7 @@ Emoji <- function(data, guild) {
     id = data$id,
     name = data$name,
     roles = fastmap(),
-    users = data$users,
+    users = data$users, # TODO fetch out of cache
     require_colons = data$require_colons,
     managed = data$managed,
     animated = data$animated
