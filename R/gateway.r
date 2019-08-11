@@ -1,7 +1,9 @@
 library(websocket)
 library(rjson)
 
+source("R/event_identify.r")
 source("R/event_handler.r")
+
 #' Connect and authenticate to the websocket via a client
 #' @export
 #'
@@ -9,12 +11,18 @@ source("R/event_handler.r")
 #' @example
 #' connect(client)
 connect <- function(client) {
+  start_connection(client)
+}
+
+start_connection <- function(client, reconnect = FALSE, resume = FALSE) {
   client$ws = WebSocket$new(
    "wss://gateway.discord.gg/?v=6&encoding=json",
    autoConnect = FALSE
   )
 
-  client$ws$onOpen(onOpen)
+  client$ws$onOpen(function(event) {
+    identify(client)
+  })
 
   client$ws$onClose(function(event) {
     cat("Client disconnected with code ", event$code,
@@ -31,8 +39,4 @@ connect <- function(client) {
   while (TRUE) {
     later::run_now(1L)
   }
-}
-
-onOpen <- function(event) {
-  cat("Opened a new connection against Discord\n")
 }
