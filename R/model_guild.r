@@ -5,6 +5,7 @@ source("R/model_role.r")
 source("R/model_emoji.r")
 source("R/model_user.r")
 source("R/model_channel.r")
+source("R/model_presence.r")
 
 #' A Class which represents a guild object
 #' @export
@@ -39,7 +40,6 @@ source("R/model_channel.r")
 #' @slot voice_stated (without the guild_id key)
 #' @slot members users in the guild
 #' @slot channels channels in the guild
-#' @slot presences presences of the users in the guild
 #' @slot max_presences the maximum amount of presences for the guild (the default value, currently 5000, is in effect when null is returned)
 #' @slot max_members the maximum amount of members for the guild
 #' @slot vanity_url_code the vanity url code for the guild
@@ -78,7 +78,6 @@ Guild <- function(data) {
     members = fastmap(),
     roles = fastmap(),
     channels = fastmap(),
-    presences = data$presences,
     max_presences = data$max_presences,
     max_members = data$max_members,
     vanity_url_code = data$vanity_url_code,
@@ -92,6 +91,7 @@ Guild <- function(data) {
   lapply(data$roles, function(role) value$roles$set(role$id, Role(role)))
   lapply(data$emojis, function(emoji) value$emojis$set(emoji$id, Emoji(emoji, value)))
   lapply(data$channels, function(channel) value$channels$set(channel$id, Channel(channel)))
+  lapply(data$presences, function(presence) client$presences$set(presence$user$id, Presence(presence, value)))
 
   attr(value, "class") <- "Guild"
   value
