@@ -2,6 +2,7 @@ library(fastmap)
 
 source("R/model_guildmember.r")
 source("R/model_role.r")
+source("R/model_emoji.r")
 
 #' A Class which represents a guild object
 #' @export
@@ -61,7 +62,7 @@ Guild <- function(data) {
     verification_level = data$verification_level,
     default_message_notifications = data$default_message_notifications,
     explicit_content_filter = data$explicit_content_filter,
-    emojis = data$emojis,
+    emojis = fastmap(),
     features = data$features,
     mfa_level = data$mfa_level,
     application_id = data$application_id,
@@ -73,6 +74,7 @@ Guild <- function(data) {
     member_count = data$member_count,
     voice_states = data$voice_states,
     members = fastmap(),
+    roles = fastmap(),
     channels = data$channels,
     presences = data$presences,
     max_presences = data$max_presences,
@@ -82,11 +84,12 @@ Guild <- function(data) {
     banner = data$banner,
     premium_tier = data$premium_tier,
     premium_subscription_count = data$premium_subscription_count
-
-    # members = data$members
   )
 
   lapply(data$members, function(mem) value$members$set(mem$user$id, GuildMember(mem)))
+  lapply(data$roles, function(role) value$roles$set(role$id, Role(role)))
+  lapply(data$emojis, function(emoji) value$emojis$set(emoji$id, Emoji(emoji)))
+
   attr(value, "class") <- "Guild"
   value
 }
