@@ -4,7 +4,7 @@
 \alias{Presence}
 \title{A Class which represents a presence object}
 \usage{
-Presence(data, g)
+Presence(data)
 }
 \description{
 A Class which represents a presence object

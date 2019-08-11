@@ -3,6 +3,7 @@
 export(Channel)
 export(Client)
 export(Emoji)
+export(EventEmitter)
 export(Guild)
 export(GuildMember)
 export(Presence)

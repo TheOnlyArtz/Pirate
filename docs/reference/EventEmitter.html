@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Class which represents a presence object — Presence • pirate</title>
+<title>A Class which emits event, heavily modelled after Node.js — EventEmitter • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="A Class which represents a presence object — Presence" />
+<meta property="og:title" content="A Class which emits event, heavily modelled after Node.js — EventEmitter" />
 
-<meta property="og:description" content="A Class which represents a presence object" />
+<meta property="og:description" content="A Class which emits event, heavily modelled after Node.js" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -98,37 +98,31 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A Class which represents a presence object</h1>
+    <h1>A Class which emits event, heavily modelled after Node.js</h1>
     
-    <div class="hidden name"><code>Presence.Rd</code></div>
+    <div class="hidden name"><code>EventEmitter.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A Class which represents a presence object</p>
+    <p>A Class which emits event, heavily modelled after Node.js</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>Presence</span>(<span class='no'>data</span>)</pre>
+    <pre class="usage"><span class='fu'>EventEmitter</span>(<span class='no'>c</span>)</pre>
         
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     
 
 <dl class='dl-horizontal'>
-<dt><code>user</code></dt><dd><p>the user presence is being updated for</p></dd>
+<dt><code>client</code></dt><dd><p>The client to emmit the events to</p></dd>
 
-<dt><code>roles</code></dt><dd><p>roles this user is in</p></dd>
+<dt><code>events</code></dt><dd><p>The event handlers</p></dd>
 
-<dt><code>game</code></dt><dd><p>null, or the user's current activity</p></dd>
+<dt><code>emit</code></dt><dd><p>The function which is used to emit events</p></dd>
 
-<dt><code>guild_id</code></dt><dd><p>id of the guild</p></dd>
-
-<dt><code>status</code></dt><dd><p>either "idle", "dnd", "online", or "offline"</p></dd>
-
-<dt><code>activities</code></dt><dd><p>user's current activities</p></dd>
-
-<dt><code>client_status</code></dt><dd><p>user's platform-dependent status</p></dd>
+<dt><code>on</code></dt><dd><p>The function which will add handlers</p></dd>
 </dl>
     
 
