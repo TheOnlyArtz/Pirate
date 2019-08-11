@@ -1,5 +1,10 @@
 source("R/model_guild.r")
 
 guildcreate <- function(data, client) {
-  client$guilds$set(data$id, Guild(data))
+  new <- isFALSE(client$guilds$has(data$id))
+  guild <- Guild(data)
+  client$guilds$set(data$id, guild)
+
+  if (new)
+    client$emitter$emit("GUILD_CREATE", guild)
 }
