@@ -1,3 +1,5 @@
+library(fastmap)
+
 source("R/model_guildmember.r")
 source("R/model_role.r")
 
@@ -42,92 +44,49 @@ source("R/model_role.r")
 #' @slot banner banner hash
 #' @slot premium_tier premium_tier (SEE: https://discordapp.com/developers/docs/resources/guild#guild-object-premium-tier)
 #' @slot premium_subscription_count the total number of users currently boosting this server
-Guild <- R6Class("Class",
-  public = list(
-    initialize = function(data) {
-      self$id = data$id
-      self$name = data$name
-      self$icon = data$icon
-      self$splash = data$splash
-      self$owner = data$owner
-      self$owner_id = data$owner_id
-      self$permissions = data$permissions
-      self$region = data$region
-      self$afk_channel_id = data$afk_channel_id
-      self$afk_timeout = data$afk_timeout
-      self$embed_enabled = data$embed_enabled
-      self$embed_channel_id = data$embed_channel_id
-      self$verification_level = data$verification_level
-      self$default_message_notifications = data$default_message_notifications
-      self$explicit_content_filter = data$explicit_content_filter
-      self$emojis = data$emojis
-      self$features = data$features
-      self$mfa_level = data$mfa_level
-      self$application_id = data$application_id
-      self$widget_enabled = data$widget_enabled
-      self$widget_channel_id = data$widget_channel_id
-      self$system_channel_id = data$system_channel_id
-      self$jonied_at = data$jonied_at
-      self$large = data$large
-      self$unavailable = data$unavailable
-      self$member_count = data$member_count
-      self$voice_states = data$voice_states
-      self$channels = data$channels
-      self$presences = data$presences
-      self$max_presences = data$max_presences
-      self$max_members = data$max_members
-      self$vanity_url_code = data$vanity_url_code
-      self$description = data$description
-      self$banner = data$banner
-      self$premium_tier = data$premium_tier
-      self$premium_subscription_count = data$premium_subscription_count
+Guild <- function(data) {
+  value <- list(
+    id = data$id,
+    name = data$name,
+    icon = data$icon,
+    splash = data$splash,
+    owner = data$owner,
+    owner_id = data$owner_id,
+    permissions = data$permissions,
+    region = data$region,
+    afk_channel_id = data$afk_channel_id,
+    afk_timeout = data$afk_timeout,
+    embed_enabled = data$embed_enabled,
+    embed_channel_id = data$embed_channel_id,
+    verification_level = data$verification_level,
+    default_message_notifications = data$default_message_notifications,
+    explicit_content_filter = data$explicit_content_filter,
+    emojis = data$emojis,
+    features = data$features,
+    mfa_level = data$mfa_level,
+    application_id = data$application_id,
+    widget_enabled = data$widget_enabled,
+    system_channel_id = data$system_channel_id,
+    jonied_at = data$jonied_at,
+    large = data$large,
+    unavailable = data$unavailable,
+    member_count = data$member_count,
+    voice_states = data$voice_states,
+    members = fastmap(),
+    channels = data$channels,
+    presences = data$presences,
+    max_presences = data$max_presences,
+    max_members = data$max_members,
+    vanity_url_code = data$vanity_url_code,
+    description = data$description,
+    banner = data$banner,
+    premium_tier = data$premium_tier,
+    premium_subscription_count = data$premium_subscription_count
 
-      for (mem in data$members) {
-        self$members[[mem$user$id]] <- GuildMember$new(mem, client)
-      }
+    # members = data$members
+  )
 
-      for (role in data$roles) {
-        self$roles[[role$id]] <- Role$new(role, client)
-      }
-    },
-    id = NA,
-    name = NA,
-    icon = NA,
-    splash = NA,
-    owner = NA,
-    owner_id = NA,
-    permissions = NA,
-    region = NA,
-    afk_channel_id = NA,
-    afk_timeout = NA,
-    embed_enabled = NA,
-    embed_channel_id = NA,
-    verification_level = NA,
-    default_message_notifications = NA,
-    explicit_content_filter = NA,
-    emojis = NA,
-    features = NA,
-    mfa_level = NA,
-    application_id = NA,
-    widget_enabled = NA,
-    widget_channel_id = NA,
-    system_channel_id = NA,
-    joined_at = NA,
-    large = NA,
-    unavailable = NA,
-    member_count = NA,
-    voice_states = NA,
-    roles = list(),
-    members = list(),
-    channels = list(),
-    presences = list(),
-    max_presences = NA,
-    max_members = NA,
-    vanity_url_code = NA,
-    description = NA,
-    banner = NA,
-    premium_tier = NA,
-    premium_subscription_count = NA
-  ),
-  lock_objects = FALSE
-)
+  lapply(data$members, function(mem) value$members$set(mem$user$id, GuildMember(mem)))
+  attr(value, "class") <- "Guild"
+  value
+}
