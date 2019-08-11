@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • pirate</title>
+<title>A Function which is being used to update the client's presence — update.presence • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="A Function which is being used to update the client's presence — update.presence" />
+
+<meta property="og:description" content="A Function which is being used to update the client's presence" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -50,7 +53,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -93,108 +96,59 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>A Function which is being used to update the client's presence</h1>
+    
+    <div class="hidden name"><code>update.presence.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>A Function which is being used to update the client's presence</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Channel.html">Channel()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a channel object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Client.html">Client()</a></code> </p>
-        </td>
-        <td><p>A Class which represents the Client</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="connect.html">connect()</a></code> </p>
-        </td>
-        <td><p>Connect and authenticate to the websocket via a client</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Emoji.html">Emoji()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a guild emoji object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="EventEmitter.html">EventEmitter()</a></code> </p>
-        </td>
-        <td><p>A Class which emits event, heavily modelled after Node.js</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Guild.html">Guild()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a guild object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="GuildMember.html">GuildMember()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a guild member</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pirate-package.html">pirate-package</a></code> </p>
-        </td>
-        <td><p>A Discord API Wrapper</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Presence.html">Presence()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a presence object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Role.html">Role()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a role object (exists in guilds only)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="update.presence.html">update(<i>&lt;presence&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>A Function which is being used to update the client's presence</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="User.html">User()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a user object</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='co'># S3 method for presence</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='no'>client</span>, <span class='no'>presence</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>client</th>
+      <td><p>The client object</p></td>
+    </tr>
+    <tr>
+      <th>presence</th>
+      <td><p>The presence object (named list)</p></td>
+    </tr>
     </table>
-  </div>
+    
+    <h2 class="hasAnchor" id="resource"><a class="anchor" href="#resource"></a>Resource</h2>
 
+    
+
+<p>See https://discordapp.com/developers/docs/topics/gateway#update-status</p>
+    
+    <h2 class="hasAnchor" id="warning"><a class="anchor" href="#warning"></a>Warning</h2>
+
+    
+
+<p>Sending malformed payload will result in errors! don't panick :)</p>
+    
+
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      <li><a href="#arguments">Arguments</a></li>
+      
+      <li><a href="#resource">Resource</a></li>
+
+      <li><a href="#warning">Warning</a></li>
+          </ul>
+
   </div>
 </div>
 
