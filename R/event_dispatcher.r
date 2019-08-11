@@ -1,6 +1,7 @@
 source("R/event_ready.r")
 source("R/event_guildcreate.r")
 source("R/event_guildupdate.r")
+source("R/event_guildremove.r")
 
 dispatch <- function(data, client) {
   client$private$set("last_sequence", data$s)
@@ -13,6 +14,9 @@ dispatch <- function(data, client) {
     },
     "GUILD_UPDATE"={
       guildupdate(data$d, client)
+    },
+    "GUILD_REMOVE"={
+      guildremove(data$d, client)
     },
     {
       # TODO resume
