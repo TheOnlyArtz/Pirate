@@ -8,16 +8,20 @@
 #' @slot require_colons whether this emoji must be wrapped in colons
 #' @slot managed whether this emoji is managed
 #' @slot animated whether this emoji is animated
-Emoji <- function(data) {
+Emoji <- function(data, guild) {
   value <- list(
     id = data$id,
     name = data$name,
-    roles = data$roles,
+    roles = fastmap(),
     users = data$users,
     require_colons = data$require_colons,
     managed = data$managed,
     animated = data$animated
   )
+
+  if (length(data$roles) >= 1) {
+    lapply(data$roles, function(id) value$roles$set(id, guild$roles$get(id)))
+  }
 
   attr(value, "class") <- "Emoji"
   value

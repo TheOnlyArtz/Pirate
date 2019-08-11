@@ -89,7 +89,7 @@ Guild <- function(data) {
 
   lapply(data$members, function(mem) value$members$set(mem$user$id, GuildMember(mem)))
   lapply(data$roles, function(role) value$roles$set(role$id, Role(role)))
-  lapply(data$emojis, function(emoji) value$emojis$set(emoji$id, Emoji(emoji)))
+  lapply(data$emojis, function(emoji) value$emojis$set(emoji$id, Emoji(emoji, value)))
 
   attr(value, "class") <- "Guild"
   value
