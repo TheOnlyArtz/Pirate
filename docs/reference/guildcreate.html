@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • pirate</title>
+<title>Event, emitted whenever the bot joins a guild — guildcreate • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="Event, emitted whenever the bot joins a guild — guildcreate" />
+
+<meta property="og:description" content="Event, emitted whenever the bot joins a guild" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -50,7 +53,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -98,132 +101,42 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>Event, emitted whenever the bot joins a guild</h1>
+    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/event_guildcreate.r'><code>R/event_guildcreate.r</code></a></small>
+    <div class="hidden name"><code>guildcreate.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>Event, emitted whenever the bot joins a guild</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
-
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Channel.html">Channel()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a channel object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Client.html">Client()</a></code> </p>
-        </td>
-        <td><p>A Class which represents the Client</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="connect.html">connect()</a></code> </p>
-        </td>
-        <td><p>Connect and authenticate to the websocket via a client</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Emoji.html">Emoji()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a guild emoji object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="EventEmitter.html">EventEmitter()</a></code> </p>
-        </td>
-        <td><p>A Class which emits event, heavily modelled after Node.js</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Guild.html">Guild()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a guild object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="guildcreate.html">guildcreate()</a></code> </p>
-        </td>
-        <td><p>Event, emitted whenever the bot joins a guild</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="GuildMember.html">GuildMember()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a guild member</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="guildremove.html">guildremove()</a></code> </p>
-        </td>
-        <td><p>whenever a guild becomes unavilable or the bot has been removed from there</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="guildupdate.html">guildupdate()</a></code> </p>
-        </td>
-        <td><p>Event, emitted whenever a guild updates it's contents</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pirate-package.html">pirate-package</a></code> </p>
-        </td>
-        <td><p>A Discord API Wrapper</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Presence.html">Presence()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a presence object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ready.html">ready()</a></code> </p>
-        </td>
-        <td><p>Event, emitted whenever the client finished the identifying phase</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Role.html">Role()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a role object (exists in guilds only)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="update.presence.html">update(<i>&lt;presence&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>A Function which is being used to update the client's presence</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="User.html">User()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a user object</p></td>
-      </tr>
-    </tbody>
+    <pre class="usage"><span class='fu'>guildcreate</span>(<span class='no'>data</span>, <span class='no'>client</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>The new guild object</p></td>
+    </tr>
+    <tr>
+      <th>client</th>
+      <td><p>The client object</p></td>
+    </tr>
     </table>
-  </div>
+    
 
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      <li><a href="#arguments">Arguments</a></li>
+                </ul>
+
   </div>
 </div>
 
