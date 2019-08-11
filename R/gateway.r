@@ -2,7 +2,6 @@ library(websocket)
 library(rjson)
 
 source("R/event_handler.r")
-
 #' Connect and authenticate to the websocket via a client
 #' @export
 #'
@@ -17,8 +16,9 @@ connect <- function(client) {
 
   client$ws$onOpen(onOpen)
 
-  client$ws$onError(function(event) {
-    print(event$data)
+  client$ws$onClose(function(event) {
+    cat("Client disconnected with code ", event$code,
+      " and reason ", event$reason, "\n", sep = "")
   })
 
   client$ws$onMessage(function(event) {
