@@ -6,26 +6,28 @@ source("R/events_emitter.r")
 #' @slot token The Client's token
 #' @slot ws The WebSocket connection of the client
 #' @slot user The client's user object
-#' @slot heartbeat The heartbeat interval of the client
-#' @slot lastSequence The last sequence ID/Number from Discord
+#' @slot private set of fields you should not touch!
 #' @slot guilds The cached guilds of the Client
 #' @slot users The cached users of the Client
 #' @slot presences The cached presences of the Client
+#' @slot emitter The event emitter
 #' @section Warning:
 #' Do not mutate heartbeat value
 Client <- function(t) {
   value = list(
-    user = NA,
     token = t,
     ws = NA,
     user = NA,
-    heartbeat = NA,
-    lastSequence = NA,
+    private = fastmap(),
     guilds = fastmap(),
     users = fastmap(),
     presences = fastmap(),
     emitter = NA
   )
+
+  value$private$set("heartbeat", NA)
+  value$private$set("lastSequence", NA)
+  value$private$set("session_id", NA)
 
   attr(value, "class") <- "Client"
   value
