@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • pirate</title>
+<title>A Class which represents a channel object — Channel • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="A Class which represents a channel object — Channel" />
+
+<meta property="og:description" content="A Class which represents a channel object" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -50,7 +53,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -93,90 +96,81 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>A Class which represents a channel object</h1>
+    
+    <div class="hidden name"><code>Channel.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>A Class which represents a channel object</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>Channel</span>(<span class='no'>data</span>)</pre>
+        
+    <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="Channel.html">Channel()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a channel object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Client.html">Client()</a></code> </p>
-        </td>
-        <td><p>A Class which represents the Client</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="connect.html">connect()</a></code> </p>
-        </td>
-        <td><p>Connect and authenticate to the websocket via a client</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Emoji.html">Emoji()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a guild emoji object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Guild.html">Guild()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a guild object</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="GuildMember.html">GuildMember()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a guild member</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="pirate-package.html">pirate-package</a></code> </p>
-        </td>
-        <td><p>A Discord API Wrapper</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="Role.html">Role()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a role object (exists in guilds only)</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="User.html">User()</a></code> </p>
-        </td>
-        <td><p>A Class which represents a user object</p></td>
-      </tr>
-    </tbody>
-    </table>
+    
+
+<dl class='dl-horizontal'>
+<dt><code>id</code></dt><dd><p>the id of this channel</p></dd>
+
+<dt><code>type</code></dt><dd><p>the type of channel</p></dd>
+
+<dt><code>guild_id</code></dt><dd><p>the id of the guild</p></dd>
+
+<dt><code>position</code></dt><dd><p>sorting position of the channel</p></dd>
+
+<dt><code>permission_overwrites</code></dt><dd><p>explicit permission overwrites for members and roles</p></dd>
+
+<dt><code>name</code></dt><dd><p>the name of the channel (2-100 characters)</p></dd>
+
+<dt><code>topic</code></dt><dd><p>the channel topic (0-1024 characters)</p></dd>
+
+<dt><code>nsfw</code></dt><dd><p>whether the channel is nsfw</p></dd>
+
+<dt><code>last_message_id</code></dt><dd><p>the id of the last message sent in this channel (may not point to an existing or valid message)</p></dd>
+
+<dt><code>bitrate</code></dt><dd><p>the bitrate (in bits) of the voice channel</p></dd>
+
+<dt><code>user_limit</code></dt><dd><p>the user limit of the voice channel</p></dd>
+
+<dt><code>rate_limit_per_user</code></dt><dd><p>amount of seconds a user has to wait before sending another message</p></dd>
+
+<dt><code>recipients</code></dt><dd><p>the recipients of the DM</p></dd>
+
+<dt><code>icon</code></dt><dd><p>icon hash</p></dd>
+
+<dt><code>owner_id</code></dt><dd><p>id of the DM creator</p></dd>
+
+<dt><code>application_id</code></dt><dd><p>application id of the group DM creator if it is bot-created</p></dd>
+
+<dt><code>parent_id</code></dt><dd><p>id of the parent category for a channel</p></dd>
+
+<dt><code>last_pin_timestamp</code></dt><dd><p>when the last pinned message was pinned</p></dd>
+</dl>
+    
+    <h2 class="hasAnchor" id="disclaimer"><a class="anchor" href="#disclaimer"></a>Disclaimer</h2>
+
+    <p>Pirate's channel object won't be separated to types!
+see https://discordapp.com/developers/docs/resources/channel#channel-object-channel-types
+to be able differentiate.
+also, because of that, many fields are subject of being NULL accordingly.</p>
+    
+
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      
+      <li><a href="#slots">Slots</a></li>
+
+      <li><a href="#disclaimer">Disclaimer</a></li>
+          </ul>
+
   </div>
 </div>
 
