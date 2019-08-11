@@ -9,7 +9,7 @@
 #' @slot activities user's current activities
 #' @slot client_status user's platform-dependent status
 #'
-Presence <- function(data, g) {
+Presence <- function(data) {
   value <- list(
     user = data$user, # TODO fetch out of cache
     roles = data$roles,
