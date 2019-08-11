@@ -26,6 +26,6 @@ Sending malformed payload will result in errors! don't panick :)
 }
 
 \examples{
-update.presence(client, list(game=list(name="Hey!", type=0)))
-update.presence(client, list(game=list(name="Streaming!", type=1, url="https://twitch.tv/theonlyartz")))
+\dontrun{update.presence(client, list(game=list(name="Hey!", type=0)))}
+\dontrun{update.presence(client, list(game=list(name="Streaming!", type=1, url="https://twitch.tv/theonlyartz")))}
 }
