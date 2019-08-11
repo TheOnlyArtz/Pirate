@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Class which represents the Client — Client • pirate</title>
+<title>A Class which represents a guild emoji object — Emoji • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="A Class which represents the Client — Client" />
+<meta property="og:title" content="A Class which represents a guild emoji object — Emoji" />
 
-<meta property="og:description" content="A Class which represents the Client" />
+<meta property="og:description" content="A Class which represents a guild emoji object" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -98,46 +98,38 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A Class which represents the Client</h1>
+    <h1>A Class which represents a guild emoji object</h1>
     
-    <div class="hidden name"><code>Client.Rd</code></div>
+    <div class="hidden name"><code>Emoji.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A Class which represents the Client</p>
+    <p>A Class which represents a guild emoji object</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>Client</span>(<span class='no'>t</span>)</pre>
+    <pre class="usage"><span class='fu'>Emoji</span>(<span class='no'>data</span>)</pre>
         
     <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
 
     
 
 <dl class='dl-horizontal'>
-<dt><code>token</code></dt><dd><p>The Client's token</p></dd>
+<dt><code>id</code></dt><dd><p>emoji id</p></dd>
 
-<dt><code>ws</code></dt><dd><p>The WebSocket connection of the client</p></dd>
+<dt><code>name</code></dt><dd><p>emoji name</p></dd>
 
-<dt><code>user</code></dt><dd><p>The client's user object</p></dd>
+<dt><code>roles</code></dt><dd><p>roles this emoji is whitelisted to</p></dd>
 
-<dt><code>heartbeat</code></dt><dd><p>The heartbeat interval of the client</p></dd>
+<dt><code>user</code></dt><dd><p>user that created this emoji</p></dd>
 
-<dt><code>lastSequence</code></dt><dd><p>The last sequence ID/Number from Discord</p></dd>
+<dt><code>require_colons</code></dt><dd><p>whether this emoji must be wrapped in colons</p></dd>
 
-<dt><code>guilds</code></dt><dd><p>The cached guilds of the Client</p></dd>
+<dt><code>managed</code></dt><dd><p>whether this emoji is managed</p></dd>
 
-<dt><code>users</code></dt><dd><p>The cached users of the Client</p></dd>
-
-<dt><code>presences</code></dt><dd><p>The cached presences of the Client</p></dd>
+<dt><code>animated</code></dt><dd><p>whether this emoji is animated</p></dd>
 </dl>
-    
-    <h2 class="hasAnchor" id="warning"><a class="anchor" href="#warning"></a>Warning</h2>
-
-    
-
-<p>Do not mutate heartbeat value</p>
     
 
   </div>
@@ -146,8 +138,6 @@
     <ul class="nav nav-pills nav-stacked">
       
       <li><a href="#slots">Slots</a></li>
-
-      <li><a href="#warning">Warning</a></li>
           </ul>
 
   </div>
