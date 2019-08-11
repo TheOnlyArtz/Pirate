@@ -1,5 +1,3 @@
-library(rjson)
-
 resume <- function(client) {
   s_id = client$private$get("session_id")
   last_sequence = client$private$get("last_sequence")

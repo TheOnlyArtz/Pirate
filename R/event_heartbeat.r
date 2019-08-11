@@ -1,5 +1,3 @@
-library(rjson)
-
 # OP: 1
 heartbeat <- function (delay, client) {
   # Delay and recursion.
