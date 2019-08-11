@@ -72,8 +72,6 @@ A Class which represents a guild object
 
 \item{\code{channels}}{channels in the guild}
 
-\item{\code{presences}}{presences of the users in the guild}
-
 \item{\code{max_presences}}{the maximum amount of presences for the guild (the default value, currently 5000, is in effect when null is returned)}
 
 \item{\code{max_members}}{the maximum amount of members for the guild}
