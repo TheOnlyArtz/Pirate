@@ -8,10 +8,7 @@ dispatch <- function(data, client) {
       ready(data$d, client)
     },
     "GUILD_CREATE"={
-      start_time <- Sys.time()
       guildcreate(data$d, client)
-      end_time <- Sys.time()
-      print(end_time - start_time)
     },
     {
       # TODO resume
