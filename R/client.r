@@ -1,6 +1,5 @@
 library(R6)
 source("R/gateway.r")
-
 #' A Class which represents the Client
 #' @export
 #' @slot token The Client's token
@@ -13,22 +12,18 @@ source("R/gateway.r")
 #' @slot presences The cached presences of the Client
 #' @section Warning:
 #' Do not mutate heartbeat value
-Client <- R6Class("Class",
-  public = list(
-    initialize = function(token) {
-      self$token = token
-    },
-    token = NA,
+Client <- function(t) {
+  value = list(
+    token = t,
     ws = NA,
     user = NA,
     heartbeat = NA,
     lastSequence = NA,
-    guilds = list(),
-    users = list(),
-    presences = list(),
-    add_guild = function (id, g) {
-      self$guilds[[id]] <- g
-    }
-  ),
-  lock_objects = FALSE
-)
+    guilds = fastmap(),
+    users = fastmap(),
+    presences = fastmap()
+  )
+
+  attr(value, "class") <- "Client"
+  value
+}
