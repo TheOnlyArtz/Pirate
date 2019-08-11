@@ -9,7 +9,7 @@
 #' @slot managed whether this emoji is managed
 #' @slot animated whether this emoji is animated
 Emoji <- function(data) {
-  value = list(
+  value <- list(
     id = data$id,
     name = data$name,
     roles = data$roles,

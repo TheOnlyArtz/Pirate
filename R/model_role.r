@@ -10,7 +10,7 @@
 #' @slot managed whether this role is managed by an integration
 #' @slot mentionable whether this role is mentionable
 Role <- function(data) {
-  value = list(
+  value <- list(
     id = data$id,
     name = data$name,
     color = data$color,
