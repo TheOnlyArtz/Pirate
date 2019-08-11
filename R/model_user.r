@@ -7,22 +7,16 @@
 #' @slot avatar The user's avatar hash
 #' @slot flags The flags on a user's account
 #' @slot premium_type The type of Nitro subscription on a user's account
-User <- R6Class("Class",
-  public=list(
-    initialize = function(data) {
-      self$id = data$id
-      self$username = data$username
-      self$discriminator = data$discriminator
-      self$avatar = data$discriminator
-      self$flags = data$flags
-      self$premium_type = data$premium_type
-    },
-    id = NA,
-    username = NA,
-    discriminator = NA,
-    avatar = NA,
-    flags = NA,
-    premium_type = NA
-  ),
-  lock_objects = FALSE
-)
+User <- function(data) {
+  value <- list(
+    id = data$id,
+    username = data$username,
+    discriminator = data$discriminator,
+    avatar = data$discriminator,
+    flags = data$flags,
+    premium_type = data$premium_type
+  )
+
+  attr(value, "class") <- "User"
+  value
+}

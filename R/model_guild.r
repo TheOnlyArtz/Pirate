@@ -3,6 +3,7 @@ library(fastmap)
 source("R/model_guildmember.r")
 source("R/model_role.r")
 source("R/model_emoji.r")
+source("R/model_user.r")
 
 #' A Class which represents a guild object
 #' @export
@@ -51,7 +52,7 @@ Guild <- function(data) {
     name = data$name,
     icon = data$icon,
     splash = data$splash,
-    owner = data$owner,
+    owner = User(data$members[[data$owner_id]]),
     owner_id = data$owner_id,
     permissions = data$permissions,
     region = data$region,
