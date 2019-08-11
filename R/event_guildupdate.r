@@ -1,5 +1,8 @@
 source("R/model_guild.r")
 
+#' Event, emitted whenever a guild updates it's contents
+#' @param data The updated guild object (partial)
+#' @param client The client object
 guildupdate <- function(data, client) {
   guild <- client$guilds$get(data$id)
 
