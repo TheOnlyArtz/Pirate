@@ -4,7 +4,7 @@
 \alias{Emoji}
 \title{A Class which represents a guild emoji object}
 \usage{
-Emoji(data)
+Emoji(data, guild)
 }
 \description{
 A Class which represents a guild emoji object
