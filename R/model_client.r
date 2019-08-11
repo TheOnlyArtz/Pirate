@@ -26,7 +26,7 @@ Client <- function(t) {
   )
 
   value$private$set("heartbeat", NA)
-  value$private$set("lastSequence", NA)
+  value$private$set("last_sequence", NA)
   value$private$set("session_id", NA)
 
   attr(value, "class") <- "Client"
