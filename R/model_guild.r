@@ -4,6 +4,7 @@ source("R/model_guildmember.r")
 source("R/model_role.r")
 source("R/model_emoji.r")
 source("R/model_user.r")
+source("R/model_channel.r")
 
 #' A Class which represents a guild object
 #' @export
@@ -76,7 +77,7 @@ Guild <- function(data) {
     voice_states = data$voice_states,
     members = fastmap(),
     roles = fastmap(),
-    channels = data$channels,
+    channels = fastmap(),
     presences = data$presences,
     max_presences = data$max_presences,
     max_members = data$max_members,
@@ -90,6 +91,7 @@ Guild <- function(data) {
   lapply(data$members, function(mem) value$members$set(mem$user$id, GuildMember(mem)))
   lapply(data$roles, function(role) value$roles$set(role$id, Role(role)))
   lapply(data$emojis, function(emoji) value$emojis$set(emoji$id, Emoji(emoji, value)))
+  lapply(data$channels, function(channel) value$channels$set(channel$id, Channel(channel)))
 
   attr(value, "class") <- "Guild"
   value
