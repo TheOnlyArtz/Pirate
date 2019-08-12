@@ -8,15 +8,17 @@
 #' @slot require_colons whether this emoji must be wrapped in colons
 #' @slot managed whether this emoji is managed
 #' @slot animated whether this emoji is animated
+#' @slot guild_id the guild_id this emoji belongs to
 Emoji <- function(data, guild) {
   value <- list(
     id = data$id,
     name = data$name,
     roles = fastmap(),
-    users = data$users,
+    users = data$users, # TODO fetch out of cache
     require_colons = data$require_colons,
     managed = data$managed,
-    animated = data$animated
+    animated = data$animated,
+    guild_id = guild$id
   )
 
   if (length(data$roles) >= 1) {

@@ -1,5 +1,3 @@
-library(fastmap)
-
 source("R/model_guildmember.r")
 source("R/model_role.r")
 source("R/model_emoji.r")
@@ -87,7 +85,7 @@ Guild <- function(data) {
     premium_subscription_count = data$premium_subscription_count
   )
 
-  lapply(data$members, function(mem) value$members$set(mem$user$id, GuildMember(mem)))
+  lapply(data$members, function(mem) value$members$set(mem$user$id, GuildMember(mem, client)))
   lapply(data$roles, function(role) value$roles$set(role$id, Role(role)))
   lapply(data$emojis, function(emoji) value$emojis$set(emoji$id, Emoji(emoji, value)))
   lapply(data$channels, function(channel) value$channels$set(channel$id, Channel(channel)))

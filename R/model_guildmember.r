@@ -8,7 +8,7 @@
 #' @slot premium_since when the user used their Nitro boost on the server
 #' @slot deaf whether the user is deafened in voice channels
 #' @slot mute whether the user is muted in voice channels
-GuildMember <- function(data) {
+GuildMember <- function(data, client) {
   value <- list(
     nick = data$nick,
     roles = data$roles,
@@ -17,6 +17,10 @@ GuildMember <- function(data) {
     deaf = data$deaf,
     mute = data$mute
   )
+
+  value$user <- client$users$get(data$user$id)
+  if (is.null(value$user)) value$user <- User(data$user)
+
   attr(value, "class") <- "GuildMember"
   value
 }

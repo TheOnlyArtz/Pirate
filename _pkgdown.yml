@@ -1,0 +1,24 @@
+# reference:
+#   - title: "Events"
+#     desc: >
+#       The events that will be emitted to the client
+#     contents:
+#       - ready
+#       - guildcreate
+#       - guildupdate
+#   - title: "Models/Types"
+#     desc: >
+#       The avilable data structures (S3 classes)
+#     contents:
+#       - Client
+#       - Channel
+#       - Emoji
+#       - Guild
+#       - GuildMember
+#       - Presence
+#       - User
+#   - title: "Gateway requests"
+#     desc: >
+#       Function that their purpose is to function through the gateway
+#     contents:
+#       - update.presence

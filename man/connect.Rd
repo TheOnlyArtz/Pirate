@@ -12,3 +12,9 @@ connect(client)
 \description{
 Connect and authenticate to the websocket via a client
 }
+\examples{
+\dontrun{
+client <- Client("<PRECIOUS TOKEN>")
+connect(client)
+}
+}

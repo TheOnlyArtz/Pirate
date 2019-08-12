@@ -1,6 +1,3 @@
-library(websocket)
-library(rjson)
-
 source("R/request_identify.r")
 source("R/request_resume.r")
 source("R/event_handler.r")
@@ -9,8 +6,11 @@ source("R/event_handler.r")
 #' @export
 #'
 #' @param client A Client class/object
-#' @example
+#' @examples
+#' \dontrun{
+#' client <- Client("<PRECIOUS TOKEN>")
 #' connect(client)
+#'}
 connect <- function(client) {
   start_connection(client)
 }

@@ -81,9 +81,6 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li>
-  <a href="../news/index.html">Changelog</a>
-</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -147,6 +144,12 @@
 <p>Sending malformed payload will result in errors! don't panick :)</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='fu'>update.presence</span>(<span class='no'>client</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>game</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>name</span><span class='kw'>=</span><span class='st'>"Hey!"</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='fl'>0</span>)))
+<span class='co'># }</span><span class='co'># NOT RUN {</span>
+<span class='fu'>update.presence</span>(<span class='no'>client</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>game</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>name</span><span class='kw'>=</span><span class='st'>"Streaming!"</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>url</span><span class='kw'>=</span><span class='st'>"https://twitch.tv/theonlyartz"</span>)))
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -156,7 +159,9 @@
       <li><a href="#resource">Resource</a></li>
 
       <li><a href="#warning">Warning</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
