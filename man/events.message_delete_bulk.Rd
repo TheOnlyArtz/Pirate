@@ -17,6 +17,7 @@ Event, emitted whenever a message is being deleted
 \examples{
 \dontrun{
 client$emitter$on("MESSAGE_DELETE_BULK", function(channel, messages) {
+cat(length(messages), "have been deleted")
 cat("Content of the deleted message:", message$content)
 })
 }
