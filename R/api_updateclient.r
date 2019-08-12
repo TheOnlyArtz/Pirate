@@ -24,6 +24,5 @@ updates.presence <- function(client, presence) {
   if (is.null(presence$since)) payload$d$since <- NA
 
   json <- toJSON(payload)
-  cat(json)
   client$ws$send(json)
 }
