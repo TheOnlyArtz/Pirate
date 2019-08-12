@@ -9,6 +9,7 @@ source("R/events_emitter.r")
 #' @slot user The client's user object
 #' @slot private set of fields you should not touch!
 #' @slot guilds The cached guilds of the Client
+#' @slot direct_channels The cached DMs of the Client
 #' @slot users The cached users of the Client
 #' @slot presences The cached presences of the Client
 #' @slot emitter The event emitter
@@ -21,6 +22,7 @@ Client <- function(t) {
     user = NA,
     private = fastmap(),
     guilds = fastmap(),
+    direct_channels = fastmap(),
     users = fastmap(),
     presences = fastmap(),
     emitter = NA
