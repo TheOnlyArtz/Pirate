@@ -1,3 +1,5 @@
+source("R/model_user.r")
+
 #' A Class which represents a channel object
 #' @export
 #'
@@ -24,6 +26,7 @@
 #' see https://discordapp.com/developers/docs/resources/channel#channel-object-channel-types
 #' to be able differentiate.
 #' also, because of that, many fields are subject of being NULL accordingly.
+#' @import fastmap
 Channel <- function(data) {
   value <- list(
     id = data$id,
@@ -46,6 +49,11 @@ Channel <- function(data) {
     last_pin_timestamp = data$last_pin_timestamp
   )
 
+  if (isFALSE(is.null(data$recipients))) {
+    value$recipients <- fastmap()
+    lapply(data$recipients, function(user) value$recipients$set(user$id, User(user)))
+  }
+  
   attr(value, "class") <- "Channel"
   value
 }
