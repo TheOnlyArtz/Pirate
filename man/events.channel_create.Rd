@@ -23,11 +23,11 @@ you will have to be aware of it when involving complex actions
 \examples{
 \dontrun{
 client$emitter$on("CHANNEL_CREATE", function(channel) {
-guild_channel_types = c(0, 2, 4, 5, 6)
-if (channel$type \%in\% guild_channel_types) {
- guild <- client$guilds$get(channel$guild_id)
- cat("A new channel called:", channel$name, "has been created in:", guild$id)
-}
+ guild_channel_types = c(0, 2, 4, 5, 6)
+ if (channel$type \%in\% guild_channel_types) {
+   guild <- client$guilds$get(channel$guild_id)
+   cat("A new channel called:", channel$name, "has been created in:", guild$id)
+ }
 })
 }
 }
