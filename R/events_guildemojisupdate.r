@@ -36,9 +36,11 @@ event.guild_emojis_update <- function(data, client) {
       }
     } else {
       # When an emoji is not cached it's sure to be a new one
-      events.emojis_add(emoji, client)
+      events.emojis_add(new_emoji, client)
     }
   }
+
+  lapply(deleted_emojis, function(emoji) events.emojis_remove(emoji, client))
 }
 
 #' Event, emitted whenever an emoji updates (for real)
@@ -80,4 +82,26 @@ events.emojis_add <- function(emoji, client) {
   guild$emojis$set(emoji$id, emoji)
 
   client$emitter$emit("GUILD_EMOJIS_ADD", emoji)
+}
+
+#' Event, emitted whenever an emoji is being deleted
+#' @param emoji The deleted emoji
+#' @param client The client object
+#' @examples
+#' \dontrun{
+#' client$emitter$on("GUILD_EMOJIS_REMOVE", function(emoji)) {
+#'  guild = client$guilds$get(emoji$guild_id)
+#'  cat("A new emoji with the name of", emoji$name, "has been removed to", guild$name)
+#' }
+#'}
+#' @section Note:
+#' this event is being emitted from events.guild_emojis_update
+events.emojis_remove <- function(emoji, client) {
+  guild = client$guilds$get(emoji$guild_id)
+
+  if (is.null(guild)) return()
+
+  guild$emojis$remove(emoji$id)
+
+  client$emitter$emit("GUILD_EMOJIS_REMOVE", emoji)
 }
