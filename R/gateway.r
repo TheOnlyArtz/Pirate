@@ -6,8 +6,10 @@ source("R/event_handler.r")
 #' @export
 #'
 #' @param client A Client class/object
-#' @example
+#' @examples
+#' \dontrun{
 #' connect(client)
+#'}
 connect <- function(client) {
   start_connection(client)
 }
