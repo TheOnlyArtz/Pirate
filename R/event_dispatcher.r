@@ -25,7 +25,7 @@ dispatch <- function(data, client) {
     },
     "GUILD_BAN_REMOVE"={
       guildbanremove(data$d, client)
-    }
+    },
     {
     }
   )
