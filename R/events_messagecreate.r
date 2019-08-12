@@ -5,9 +5,9 @@ source("R/model_message.r")
 #' @param client The client object
 #' @examples
 #'\dontrun{
-#'  ...
-#'  cat()
-#' })
+#'client$emitter$on("MESSAGE_CREATE", function(message) {
+#' cat("Content:", message$content)
+#'})
 #'}
 events.message_create <- function(data, client) {
   message <- Message(data, client)

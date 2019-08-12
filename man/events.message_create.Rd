@@ -14,3 +14,10 @@ events.message_create(data, client)
 \description{
 Event, emitted whenever one sends a message
 }
+\examples{
+\dontrun{
+client$emitter$on("MESSAGE_CREATE", function(message) {
+cat("Content:", message$content)
+})
+}
+}
