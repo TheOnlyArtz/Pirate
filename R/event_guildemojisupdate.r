@@ -46,11 +46,11 @@ event.guild_emojis_update <- function(data, client) {
 #' @param old_emoji The old emoji object
 #' @param differences The differences between them
 #' @param client The client object
-#' @example
-#' \dontrun {
+#' @examples
+#' \dontrun{
 #' client$emitter$on("GUILD_EMOJIS_UPDATE", function(new_emoji, old_emoji, differences)) {
 #'  cat(new_emoji$name, "has been updates from it's old name:", old_emoji$name)
-#' }
+#'  }
 #' }
 #' @section Returns:
 #' This event like the other x_update events will return the (new object, old object, list of differences)
@@ -63,7 +63,7 @@ events.emojis_update <- function(new_emoji, old_emoji, differences, client) {
 #' Event, emitted whenever a new emoji is being added
 #' @param emoji The new emoji object
 #' @param client The client object
-#' @example
+#' @examples
 #' \dontrun{
 #' client$emitter$on("GUILD_EMOJIS_ADD", function(emoji)) {
 #'  guild = client$guilds$get(emoji$guild_id)

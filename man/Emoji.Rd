@@ -25,5 +25,7 @@ A Class which represents a guild emoji object
 \item{\code{managed}}{whether this emoji is managed}
 
 \item{\code{animated}}{whether this emoji is animated}
+
+\item{\code{guild_id}}{the guild_id this emoji belongs to}
 }}
 
