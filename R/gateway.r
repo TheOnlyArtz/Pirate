@@ -8,6 +8,7 @@ source("R/event_handler.r")
 #' @param client A Client class/object
 #' @examples
 #' \dontrun{
+#' client <- Client("<PRECIOUS TOKEN>")
 #' connect(client)
 #'}
 connect <- function(client) {

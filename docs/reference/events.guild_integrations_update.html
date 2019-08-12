@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Connect and authenticate to the websocket via a client — connect • pirate</title>
+<title>Event, emitted whenever a guild's integrations is being updated — events.guild_integrations_update • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Connect and authenticate to the websocket via a client — connect" />
+<meta property="og:title" content="Event, emitted whenever a guild's integrations is being updated — events.guild_integrations_update" />
 
-<meta property="og:description" content="Connect and authenticate to the websocket via a client" />
+<meta property="og:description" content="Event, emitted whenever a guild's integrations is being updated" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,40 +103,54 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Connect and authenticate to the websocket via a client</h1>
-    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/gateway.r'><code>R/gateway.r</code></a></small>
-    <div class="hidden name"><code>connect.Rd</code></div>
+    <h1>Event, emitted whenever a guild's integrations is being updated</h1>
+    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/events_guildintegrationsupdate.r'><code>R/events_guildintegrationsupdate.r</code></a></small>
+    <div class="hidden name"><code>events.guild_integrations_update.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Connect and authenticate to the websocket via a client</p>
+    <p>Event, emitted whenever a guild's integrations is being updated</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>connect</span>(<span class='no'>client</span>)</pre>
+    <pre class="usage"><span class='fu'>events.guild_integrations_update</span>(<span class='no'>data</span>, <span class='no'>client</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>data</th>
+      <td><p>The event fields</p></td>
+    </tr>
+    <tr>
       <th>client</th>
-      <td><p>A Client class/object</p></td>
+      <td><p>The client object</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="disclaimer"><a class="anchor" href="#disclaimer"></a>Disclaimer</h2>
+
+    
+
+<p>This event will return guild id instead of guild object if not cached.
+this can be used in order to fetch the guild from the API</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>client</span> <span class='kw'>&lt;-</span> <span class='fu'>Client</span>(<span class='st'>"&lt;PRECIOUS TOKEN&gt;"</span>)
-<span class='fu'>connect</span>(<span class='no'>client</span>)
+<span class='no'>client</span>$<span class='no'>emitter</span>$<span class='fu'>on</span>(<span class='st'>"GUILD_INTEGRATIONS_UPDATE"</span>, <span class='kw'>function</span>(<span class='no'>guild</span>) {
+ <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='no'>guild</span>$<span class='no'>name</span>, <span class='st'>"Just updated their integrations"</span>)
+})
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#disclaimer">Disclaimer</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
