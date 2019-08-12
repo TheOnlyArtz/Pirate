@@ -5,7 +5,7 @@ source("R/model_guildmember.r")
 #' @param client The client object
 #' @examples
 #'\dontrun{
-#' client$emitter$on("GUILD_MEMBER_UPDATE", function(guild, old_member, new_member)
+#' client$emitter$on("GUILD_MEMBER_UPDATE", function(guild, old_member, new_member) {
 #'  cat("Old nick", old_member$nick, "New:", new_member$nick)
 #' })
 #'}
