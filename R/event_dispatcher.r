@@ -18,6 +18,7 @@ source("R/events_guildroledelete.r")
 source("R/events_guildroleupdate.r")
 source("R/events_messagecreate.r")
 source("R/events_messageupdate.r")
+source("R/events_messagedelete.r")
 
 dispatch <- function(data, client) {
   client$private$set("last_sequence", data$s)
@@ -81,6 +82,9 @@ dispatch <- function(data, client) {
     },
     "MESSAGE_UPDATE"={
       events.message_update(data$d, client)
+    },
+    "MESSAGE_DELETE"={
+      events.message_delete(data$d, client)
     },
     {}
   )
