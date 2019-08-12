@@ -46,14 +46,15 @@ Channel <- function(data) {
     owner_id = data$owner_id,
     application_id = data$application_id,
     parent_id = data$parent_id,
-    last_pin_timestamp = data$last_pin_timestamp
+    last_pin_timestamp = data$last_pin_timestamp,
+    messages = fastmap()
   )
 
   if (isFALSE(is.null(data$recipients))) {
     value$recipients <- fastmap()
     lapply(data$recipients, function(user) value$recipients$set(user$id, User(user)))
   }
-  
+
   attr(value, "class") <- "Channel"
   value
 }
