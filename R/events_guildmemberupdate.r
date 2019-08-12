@@ -13,6 +13,9 @@ source("R/model_guildmember.r")
 #' This event will return guild id instead of guild object if not cached.
 #' this can be used in order to fetch the guild from the API
 #' AND old_member will return as NA if not cached
+#' @section Differences:
+#' This event will not return differences because it will be too expensive
+#' of an operation.
 events.guild_member_update <- function(data, client) {
   guild <- client$guilds$get(data$guild_id)
   member <- guild$members$get(data$user$id)
