@@ -1,5 +1,6 @@
 source("R/events_ready.r")
 source("R/events_channelcreate.r")
+source("R/events_channelupdate.r")
 source("R/events_guildcreate.r")
 source("R/events_guildupdate.r")
 source("R/events_guildremove.r")
@@ -23,6 +24,9 @@ dispatch <- function(data, client) {
     },
     "CHANNEL_CREATE"={
       events.channel_create(data$d, client)
+    },
+    "CHANNEL_UPDATE"={
+      events.channel_update(data$d, client)
     },
     "GUILD_CREATE"={
       events.guild_create(data$d, client)
