@@ -8,6 +8,7 @@ source("R/events_guildemojisupdate.r")
 source("R/events_guildintegrationsupdate.r")
 source("R/events_guildmemberadd.r")
 source("R/events_guildmemberremove.r")
+source("R/events_guildmemberupdate.r")
 
 dispatch <- function(data, client) {
   client$private$set("last_sequence", data$s)
@@ -41,6 +42,9 @@ dispatch <- function(data, client) {
     },
     "GUILD_MEMBER_REMOVE"={
       events.guild_member_remove(data$d, client)
+    },
+    "GUILD_MEMBER_UPDATE"={
+      events.guild_member_update(data$d, client)
     },
     {
     }
