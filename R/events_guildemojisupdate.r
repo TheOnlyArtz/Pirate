@@ -12,7 +12,7 @@ source("R/model_emoji.r")
 #' 'GUILD_EMOJIS_UPDATE'
 #' 'GUILD_EMOJIS_ADD'
 #' 'GUILD_EMOJIS_REMOVE'
-event.guild_emojis_update <- function(data, client) {
+events.guild_emojis_update <- function(data, client) {
   guild <- client$guilds$get(data$guild_id)
 
   if (is.null(guild)) return()
