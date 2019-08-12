@@ -4,7 +4,7 @@ source("R/model_guildmember.r")
 #' @param data The event fields
 #' @param client The client fields
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #' client$emitter$on("GUILD_MEMBER_ADD", function(guild, member) {
 #'  cat(member$user$username, "just joined", guild$name)
 #' })

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Class which represents a guild member — GuildMember • pirate</title>
+<title>Event, emitted whenever a user joins a guild — events.guild_member_add • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="A Class which represents a guild member — GuildMember" />
+<meta property="og:title" content="Event, emitted whenever a user joins a guild — events.guild_member_add" />
 
-<meta property="og:description" content="A Class which represents a guild member" />
+<meta property="og:description" content="Event, emitted whenever a user joins a guild" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,47 +103,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A Class which represents a guild member</h1>
-    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/model_guildmember.r'><code>R/model_guildmember.r</code></a></small>
-    <div class="hidden name"><code>GuildMember.Rd</code></div>
+    <h1>Event, emitted whenever a user joins a guild</h1>
+    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/events_guildmemberadd.r'><code>R/events_guildmemberadd.r</code></a></small>
+    <div class="hidden name"><code>events.guild_member_add.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A Class which represents a guild member</p>
+    <p>Event, emitted whenever a user joins a guild</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>GuildMember</span>(<span class='no'>data</span>, <span class='no'>client</span>)</pre>
-        
-    <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
+    <pre class="usage"><span class='fu'>events.guild_member_add</span>(<span class='no'>data</span>, <span class='no'>client</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>The event fields</p></td>
+    </tr>
+    <tr>
+      <th>client</th>
+      <td><p>The client fields</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="disclaimer"><a class="anchor" href="#disclaimer"></a>Disclaimer</h2>
 
     
 
-<dl class='dl-horizontal'>
-<dt><code>user</code></dt><dd><p>the user this guild member represents</p></dd>
-
-<dt><code>nick</code></dt><dd><p>this users guild nickname (if one is set)</p></dd>
-
-<dt><code>roles</code></dt><dd><p>array of role object ids</p></dd>
-
-<dt><code>joined_at</code></dt><dd><p>when the user joined the guild</p></dd>
-
-<dt><code>premium_since</code></dt><dd><p>when the user used their Nitro boost on the server</p></dd>
-
-<dt><code>deaf</code></dt><dd><p>whether the user is deafened in voice channels</p></dd>
-
-<dt><code>mute</code></dt><dd><p>whether the user is muted in voice channels</p></dd>
-</dl>
+<p>This event will return guild id instead of guild object if not cached.
+this can be used in order to fetch the guild from the API</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='no'>client</span>$<span class='no'>emitter</span>$<span class='fu'>on</span>(<span class='st'>"GUILD_MEMBER_ADD"</span>, <span class='kw'>function</span>(<span class='no'>guild</span>, <span class='no'>member</span>) {
+ <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='no'>member</span>$<span class='no'>user</span>$<span class='no'>username</span>, <span class='st'>"just joined"</span>, <span class='no'>guild</span>$<span class='no'>name</span>)
+})
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#slots">Slots</a></li>
-          </ul>
+      <li><a href="#disclaimer">Disclaimer</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

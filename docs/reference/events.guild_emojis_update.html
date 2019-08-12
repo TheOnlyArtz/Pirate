@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Class which represents a guild member — GuildMember • pirate</title>
+<title>Event, emitted whenever an Emoji is being updated — events.guild_emojis_update • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="A Class which represents a guild member — GuildMember" />
+<meta property="og:title" content="Event, emitted whenever an Emoji is being updated — events.guild_emojis_update" />
 
-<meta property="og:description" content="A Class which represents a guild member" />
+<meta property="og:description" content="Event, emitted whenever an Emoji is being updated" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,46 +103,53 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A Class which represents a guild member</h1>
-    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/model_guildmember.r'><code>R/model_guildmember.r</code></a></small>
-    <div class="hidden name"><code>GuildMember.Rd</code></div>
+    <h1>Event, emitted whenever an Emoji is being updated</h1>
+    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/events_guildemojisupdate.r'><code>R/events_guildemojisupdate.r</code></a></small>
+    <div class="hidden name"><code>events.guild_emojis_update.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A Class which represents a guild member</p>
+    <p>Event, emitted whenever an Emoji is being updated</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>GuildMember</span>(<span class='no'>data</span>, <span class='no'>client</span>)</pre>
-        
-    <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
+    <pre class="usage"><span class='fu'>events.guild_emojis_update</span>(<span class='no'>data</span>, <span class='no'>client</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>The event fields</p></td>
+    </tr>
+    <tr>
+      <th>client</th>
+      <td><p>The client object</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="disclaimer"><a class="anchor" href="#disclaimer"></a>Disclaimer</h2>
 
     
 
-<dl class='dl-horizontal'>
-<dt><code>user</code></dt><dd><p>the user this guild member represents</p></dd>
-
-<dt><code>nick</code></dt><dd><p>this users guild nickname (if one is set)</p></dd>
-
-<dt><code>roles</code></dt><dd><p>array of role object ids</p></dd>
-
-<dt><code>joined_at</code></dt><dd><p>when the user joined the guild</p></dd>
-
-<dt><code>premium_since</code></dt><dd><p>when the user used their Nitro boost on the server</p></dd>
-
-<dt><code>deaf</code></dt><dd><p>whether the user is deafened in voice channels</p></dd>
-
-<dt><code>mute</code></dt><dd><p>whether the user is muted in voice channels</p></dd>
-</dl>
+<p>The way this event works is:
+ This event calls sub events, by default the gateway doesn't have the option
+ of recognizing what's an emoji remove and an emoji update for example.
+ so I decided to handle that for you, adding 3 events in total of emojis update events
+(These events are not documented in the official docs!)
+'GUILD_EMOJIS_UPDATE'
+'GUILD_EMOJIS_ADD'
+'GUILD_EMOJIS_REMOVE'</p>
     
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#slots">Slots</a></li>
+      <li><a href="#disclaimer">Disclaimer</a></li>
           </ul>
 
   </div>
