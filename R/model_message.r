@@ -48,10 +48,12 @@ Message <- function(data, client) {
     application = data$application
   )
 
-  guild <- client$guilds$get(if (isFALSE(is.null(data$guild_id))) data$guild_id else "0")
-  value$channel <- if (is.null(guild))
+  if (isFALSE(is.null(data$channel_id))) {    
+    guild <- client$guilds$get(if (isFALSE(is.null(data$guild_id))) data$guild_id else "0")
+    value$channel <- if (is.null(guild))
     client$direct_channels$get(data$channel_id) else
     guild$channels$get(data$channel_id)
+  }
 
   attr(value, "class") <- "Message"
   value
