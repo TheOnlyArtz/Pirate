@@ -2,7 +2,7 @@
 % Please edit documentation in R/events_guildremove.r
 \name{events.guild_remove}
 \alias{events.guild_remove}
-\title{whenever a guild becomes unavilable or the bot has been removed from there}
+\title{Event, whenever a guild becomes unavilable or the bot has been removed from there}
 \usage{
 events.guild_remove(data, client)
 }
@@ -12,7 +12,7 @@ events.guild_remove(data, client)
 \item{client}{The client object}
 }
 \description{
-whenever a guild becomes unavilable or the bot has been removed from there
+Event, whenever a guild becomes unavilable or the bot has been removed from there
 }
 \examples{
 \dontrun{
