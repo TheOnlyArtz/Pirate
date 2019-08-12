@@ -6,6 +6,7 @@ source("R/events_guildbanadd.r")
 source("R/events_guildbanremove.r")
 source("R/events_guildemojisupdate.r")
 source("R/events_guildintegrationsupdate.r")
+source("R/events_guildmemberadd.r")
 
 dispatch <- function(data, client) {
   client$private$set("last_sequence", data$s)
@@ -29,10 +30,13 @@ dispatch <- function(data, client) {
       events.guild_ban_remove(data$d, client)
     },
     "GUILD_EMOJIS_UPDATE"={
-      event.guild_emojis_update(data$d, client)
+      events.guild_emojis_update(data$d, client)
     },
     "GUILD_INTEGRATIONS_UPDATE"={
-      event.guild_integrations_update(data$d, client)
+      events.guild_integrations_update(data$d, client)
+    },
+    "GUILD_MEMBER_ADD"={
+      events.guild_member_add(data$d, client)
     },
     {
     }
