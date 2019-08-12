@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Connect and authenticate to the websocket via a client — connect • pirate</title>
+<title>A Function which is being used to update the client's presence — updates.presence • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="Connect and authenticate to the websocket via a client — connect" />
+<meta property="og:title" content="A Function which is being used to update the client's presence — updates.presence" />
 
-<meta property="og:description" content="Connect and authenticate to the websocket via a client" />
+<meta property="og:description" content="A Function which is being used to update the client's presence" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,40 +103,62 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Connect and authenticate to the websocket via a client</h1>
-    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/gateway.r'><code>R/gateway.r</code></a></small>
-    <div class="hidden name"><code>connect.Rd</code></div>
+    <h1>A Function which is being used to update the client's presence</h1>
+    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/api_updateclient.r'><code>R/api_updateclient.r</code></a></small>
+    <div class="hidden name"><code>updates.presence.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Connect and authenticate to the websocket via a client</p>
+    <p>A Function which is being used to update the client's presence</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>connect</span>(<span class='no'>client</span>)</pre>
+    <pre class="usage"><span class='fu'>updates.presence</span>(<span class='no'>client</span>, <span class='no'>presence</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>client</th>
-      <td><p>A Client class/object</p></td>
+      <td><p>The client object</p></td>
+    </tr>
+    <tr>
+      <th>presence</th>
+      <td><p>The presence object (named list)</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="resource"><a class="anchor" href="#resource"></a>Resource</h2>
+
+    
+
+
+<p>See https://discordapp.com/developers/docs/topics/gateway#update-status</p>
+    
+    <h2 class="hasAnchor" id="warning"><a class="anchor" href="#warning"></a>Warning</h2>
+
+    
+
+<p>Sending malformed payload will result in errors! don't panick :)</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='no'>client</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='Client.html'>Client</a></span>(<span class='st'>"&lt;PRECIOUS TOKEN&gt;"</span>)
-<span class='fu'>connect</span>(<span class='no'>client</span>)
+<span class='fu'>update.presence</span>(<span class='no'>client</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>game</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>name</span><span class='kw'>=</span><span class='st'>"Hey!"</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='fl'>0</span>)))
+<span class='co'># }</span><span class='co'># NOT RUN {</span>
+<span class='fu'>update.presence</span>(<span class='no'>client</span>, <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>game</span><span class='kw'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>name</span><span class='kw'>=</span><span class='st'>"Streaming!"</span>, <span class='kw'>type</span><span class='kw'>=</span><span class='fl'>1</span>, <span class='kw'>url</span><span class='kw'>=</span><span class='st'>"https://twitch.tv/theonlyartz"</span>)))
 <span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#resource">Resource</a></li>
+
+      <li><a href="#warning">Warning</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

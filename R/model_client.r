@@ -1,4 +1,5 @@
-source("R/libraries.r")
+#' @import fastmap
+
 source("R/gateway.r")
 source("R/events_emitter.r")
 
@@ -17,7 +18,7 @@ source("R/events_emitter.r")
 Client <- function(t) {
   value = list(
     token = t,
-    ws = NA,
+    ws = NULL,
     user = NA,
     private = fastmap(),
     guilds = fastmap(),

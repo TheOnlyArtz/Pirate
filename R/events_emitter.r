@@ -1,3 +1,4 @@
+#'
 #' A Class which emits event, heavily modelled after Node.js
 #' @export
 #'
@@ -5,6 +6,7 @@
 #' @slot events The event handlers
 #' @slot emit The function which is used to emit events
 #' @slot on The function which will add handlers
+#' @import fastmap
 EventEmitter <- function(c) {
   value <- list(
     client = c,
