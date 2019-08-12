@@ -2,7 +2,7 @@
 #' @param data The event fields
 #' @param client The client object
 #' @examples
-#'/dontrun{
+#'\dontrun{
 #' client$emitter$on("CHANNEL_UPDATE", function(old_channel, new_channel) {
 #'  # Assuming the name changed
 #'  cat("New name:", new_channel$name, "Old name:", old_channel$name)
