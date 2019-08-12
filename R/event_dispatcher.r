@@ -16,6 +16,7 @@ source("R/events_guildmemberschunk.r")
 source("R/events_guildrolecreate.r")
 source("R/events_guildroledelete.r")
 source("R/events_guildroleupdate.r")
+source("R/events_messagecreate.r")
 
 dispatch <- function(data, client) {
   client$private$set("last_sequence", data$s)
@@ -73,6 +74,9 @@ dispatch <- function(data, client) {
     },
     "GUILD_ROLE_UPDATE"={
       events.guild_role_update(data$d, client)
+    },
+    "MESSAGE_CREATE"={
+      events.message_create(data$d, client)
     },
     {}
   )
