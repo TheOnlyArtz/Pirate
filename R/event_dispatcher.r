@@ -9,6 +9,7 @@ source("R/events_guildintegrationsupdate.r")
 source("R/events_guildmemberadd.r")
 source("R/events_guildmemberremove.r")
 source("R/events_guildmemberupdate.r")
+source("R/events_guildmemberschunk.r")
 
 dispatch <- function(data, client) {
   client$private$set("last_sequence", data$s)
@@ -45,6 +46,9 @@ dispatch <- function(data, client) {
     },
     "GUILD_MEMBER_UPDATE"={
       events.guild_member_update(data$d, client)
+    },
+    "GUILD_MEMBERS_CHUNK"={
+      events.guild_members_chunk(data$d, client)
     },
     {
     }
