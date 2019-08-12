@@ -21,9 +21,9 @@ this event is being emitted from events.guild_emojis_update
 
 \examples{
 \dontrun{
-client$emitter$on("GUILD_EMOJIS_ADD", function(emoji)) {
+client$emitter$on("GUILD_EMOJIS_ADD", function(emoji) {
  guild = client$guilds$get(emoji$guild_id)
  cat("A new emoji with the name of", emoji$name, "has been added to", guild$name)
-}
+})
 }
 }

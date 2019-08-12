@@ -137,13 +137,12 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"># NOT RUN {
-client$emitter$on("GUILD_EMOJIS_REMOVE", function(emoji)) {
- guild = client$guilds$get(emoji$guild_id)
- cat("A new emoji with the name of", emoji$name, "has been removed to", guild$name)
-}
-# }
-</pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='no'>client</span>$<span class='no'>emitter</span>$<span class='fu'>on</span>(<span class='st'>"GUILD_EMOJIS_REMOVE"</span>, <span class='kw'>function</span>(<span class='no'>emoji</span>) {
+ <span class='no'>guild</span> <span class='kw'>=</span> <span class='no'>client</span>$<span class='no'>guilds</span>$<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>emoji</span>$<span class='no'>guild_id</span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='st'>"A new emoji with the name of"</span>, <span class='no'>emoji</span>$<span class='no'>name</span>, <span class='st'>"has been removed to"</span>, <span class='no'>guild</span>$<span class='no'>name</span>)
+})
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

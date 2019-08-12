@@ -30,8 +30,8 @@ this event is being emitted from events.guild_emojis_update
 
 \examples{
 \dontrun{
-client$emitter$on("GUILD_EMOJIS_UPDATE", function(new_emoji, old_emoji, differences)) {
+client$emitter$on("GUILD_EMOJIS_UPDATE", function(new_emoji, old_emoji, differences) {
  cat(new_emoji$name, "has been updates from it's old name:", old_emoji$name)
- }
+ })
 }
 }
