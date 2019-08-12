@@ -16,13 +16,15 @@ events.guild_role_update <- function(data, client) {
 
   old_role <- guild$roles$get(data$role$id)
 
-  difference <- data$role[!(data$role %in% role)]
-  diff_role <- Role(difference)
+  difference <- data$role[!(data$role %in% old_role)]
+  diff_role <- Role(difference, guild)
   new_role <- old_role
 
   for (key in names(difference)) {
     new_role[[key]] <- diff_role[[key]]
   }
 
-  client$roles$set(role$id, guild, old_role, new_role, name(difference))
+  guild$roles$set(data$role$id, new_role)
+
+  client$emitter$emit("GUILD_ROLE_UPDATE", guild, old_role, new_role, name(difference))
 }
