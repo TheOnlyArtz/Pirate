@@ -1,5 +1,3 @@
-#' @import rjson
-
 source("R/event_heartbeat.r")
 
 # OP 10

@@ -1,5 +1,3 @@
-#' @import websocket
-
 source("R/request_identify.r")
 source("R/request_resume.r")
 source("R/event_handler.r")

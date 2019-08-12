@@ -1,5 +1,3 @@
-#' @import fastmap
-
 source("R/model_guildmember.r")
 source("R/model_role.r")
 source("R/model_emoji.r")
