@@ -1,31 +1,31 @@
-source("R/event_ready.r")
-source("R/event_guildcreate.r")
-source("R/event_guildupdate.r")
-source("R/event_guildremove.r")
-source("R/event_guildbanadd.r")
-source("R/event_guildbanremove.r")
-source("R/event_guildemojisupdate.r")
+source("R/events_ready.r")
+source("R/events_guildcreate.r")
+source("R/events_guildupdate.r")
+source("R/events_guildremove.r")
+source("R/events_guildbanadd.r")
+source("R/events_guildbanremove.r")
+source("R/events_guildemojisupdate.r")
 
 dispatch <- function(data, client) {
   client$private$set("last_sequence", data$s)
   switch(data$t,
     "READY"={
-      ready(data$d, client)
+      events.ready(data$d, client)
     },
     "GUILD_CREATE"={
-      guildcreate(data$d, client)
+      events.guild_create(data$d, client)
     },
     "GUILD_UPDATE"={
-      guildupdate(data$d, client)
+      events.guild_update(data$d, client)
     },
     "GUILD_REMOVE"={
-      guildremove(data$d, client)
+      events.guild_remove(data$d, client)
     },
     "GUILD_BAN_ADD"={
-      guildbanadd(data$d, client)
+      events.guild_ban_add(data$d, client)
     },
     "GUILD_BAN_REMOVE"={
-      guildbanremove(data$d, client)
+      events.guild_ban_remove(data$d, client)
     },
     "GUILD_EMOJIS_UPDATE"={
       event.guild_emojis_update(data$d, client)

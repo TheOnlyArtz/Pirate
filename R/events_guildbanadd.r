@@ -9,7 +9,7 @@ source("R/model_user.r")
 #'  cat("The user", user$username, "has been banned from", guild$name)
 #'})
 #'}
-guildbanadd <- function(data, client) {
+events.guild_ban_add <- function(data, client) {
   guild <- client$guilds$get(data$guild_id)
 
   if (is.null(guild)) return()

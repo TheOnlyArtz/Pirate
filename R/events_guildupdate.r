@@ -3,7 +3,7 @@ source("R/model_guild.r")
 #' Event, emitted whenever a guild updates it's contents
 #' @param data The updated guild object (partial)
 #' @param client The client object
-guildupdate <- function(data, client) {
+events.guild_update <- function(data, client) {
   guild <- client$guilds$get(data$id)
 
   if (is.null(guild)) return() # Don't keep on going if not cached

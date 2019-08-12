@@ -7,7 +7,7 @@
 #'    cat("The bot left ", guild$name)
 #'  })
 #'}
-guildremove <- function(data, client) {
+events.guild_remove <- function(data, client) {
   guild <- client$guilds$get(data$id)
 
   if (isFALSE(is.null(guild)))

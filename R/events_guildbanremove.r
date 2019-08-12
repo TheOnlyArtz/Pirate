@@ -13,11 +13,11 @@ source("R/model_user.r")
 #' Be aware that whenever the guild won't be cached
 #' the guild parameter will return as a guild id
 #' guild id can be used to fetch the guild from the API
-guildbanremove <- function(data, client) {
+events.guild_ban_remove <- function(data, client) {
   guild <- client$guilds$get(data$guild_id)
 
   if (is.null(guild)) guild <- data$guild_id
-  
+
   # assuming user will never be cached
   # since BAN_ADD will remove them from the cache
   user <- User(data$user)
