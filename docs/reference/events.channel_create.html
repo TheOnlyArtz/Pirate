@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Class which represents the Client — Client • pirate</title>
+<title>Event, emitted whenever a channel is being created — events.channel_create • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="A Class which represents the Client — Client" />
+<meta property="og:title" content="Event, emitted whenever a channel is being created — events.channel_create" />
 
-<meta property="og:description" content="A Class which represents the Client" />
+<meta property="og:description" content="Event, emitted whenever a channel is being created" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,59 +103,60 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A Class which represents the Client</h1>
-    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/model_client.r'><code>R/model_client.r</code></a></small>
-    <div class="hidden name"><code>Client.Rd</code></div>
+    <h1>Event, emitted whenever a channel is being created</h1>
+    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/events_channelcreate.r'><code>R/events_channelcreate.r</code></a></small>
+    <div class="hidden name"><code>events.channel_create.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A Class which represents the Client</p>
+    <p>Event, emitted whenever a channel is being created</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>Client</span>(<span class='no'>t</span>)</pre>
-        
-    <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
+    <pre class="usage"><span class='fu'>events.channel_create</span>(<span class='no'>data</span>, <span class='no'>client</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>data</th>
+      <td><p>The event fields</p></td>
+    </tr>
+    <tr>
+      <th>client</th>
+      <td><p>The client object</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="disclaimer"><a class="anchor" href="#disclaimer"></a>Disclaimer</h2>
 
     
 
-<dl class='dl-horizontal'>
-<dt><code>token</code></dt><dd><p>The Client's token</p></dd>
-
-<dt><code>ws</code></dt><dd><p>The WebSocket connection of the client</p></dd>
-
-<dt><code>user</code></dt><dd><p>The client's user object</p></dd>
-
-<dt><code>private</code></dt><dd><p>set of fields you should not touch!</p></dd>
-
-<dt><code>guilds</code></dt><dd><p>The cached guilds of the Client</p></dd>
-
-<dt><code>direct_channels</code></dt><dd><p>The cached DMs of the Client</p></dd>
-
-<dt><code>users</code></dt><dd><p>The cached users of the Client</p></dd>
-
-<dt><code>presences</code></dt><dd><p>The cached presences of the Client</p></dd>
-
-<dt><code>emitter</code></dt><dd><p>The event emitter</p></dd>
-</dl>
-    
-    <h2 class="hasAnchor" id="warning"><a class="anchor" href="#warning"></a>Warning</h2>
-
+<p>Since Pirate does NOT handle channel types for you
+you will have to be aware of it when involving complex actions</p>
     
 
-<p>Do not mutate heartbeat value</p>
-    
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='no'>client</span>$<span class='no'>emitter</span>$<span class='fu'>on</span>(<span class='st'>"CHANNEL_CREATE"</span>, <span class='kw'>function</span>(<span class='no'>channel</span>) {
+<span class='no'>guild_channel_types</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>2</span>, <span class='fl'>4</span>, <span class='fl'>5</span>, <span class='fl'>6</span>)
+<span class='kw'>if</span> (<span class='no'>channel</span>$<span class='no'>type</span> <span class='kw'>%in%</span> <span class='no'>guild_channel_types</span>) {
+ <span class='no'>guild</span> <span class='kw'>&lt;-</span> <span class='no'>client</span>$<span class='no'>guilds</span>$<span class='fu'><a href='https://rdrr.io/r/base/get.html'>get</a></span>(<span class='no'>channel</span>$<span class='no'>guild_id</span>)
+ <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='st'>"A new channel called:"</span>, <span class='no'>channel</span>$<span class='no'>name</span>, <span class='st'>"has been created in:"</span>, <span class='no'>guild</span>$<span class='no'>id</span>)
+}
+})
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#slots">Slots</a></li>
-
-      <li><a href="#warning">Warning</a></li>
-          </ul>
+      <li><a href="#disclaimer">Disclaimer</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
