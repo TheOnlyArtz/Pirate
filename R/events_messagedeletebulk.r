@@ -1,4 +1,3 @@
-source("R/utils.r")
 #' Event, emitted whenever a message is being deleted
 #' @param data The event fields
 #' @param client The client object
@@ -10,7 +9,7 @@ source("R/utils.r")
 #'})
 #'}
 events.message_delete_bulk <- function(data, client) {
-  channel <- find_channel(client, data$guild_id, data$channel_id)
+  channel <- client$channels$get(data$channel_id)
 
   if (is.null(channel)) return()
 

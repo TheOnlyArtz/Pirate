@@ -1,5 +1,5 @@
 source("R/model_reaction.r")
-source("R/utils.r")
+
 #' Event, emitted whenever a reaction is being attached to a message
 #' @param data The event fields
 #' @param client The client object
@@ -12,7 +12,7 @@ source("R/utils.r")
 #'
 events.message_reaction_add <- function(data, client) {
   reaction <- Reaction(data, client)
-  channel <- find_channel(client, data$guild_id, data$channel_id)
+  channel <- client$channels$get(data$channel_id)
   message <- channel$messages$get(data$message_id)
 
   if (isTRUE(is.null(message))) return()

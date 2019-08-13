@@ -9,10 +9,7 @@ source("R/model_message.r")
 #'})
 #'}
 events.message_update <- function(data, client) {
-  guild <- client$guilds$get(if (isFALSE(is.null(data$guild_id))) data$guild_id else "0")
-  channel <- if (is.null(guild))
-    client$direct_channels$get(data$channel_id) else
-    guild$channels$get(data$channel_id)
+  channel <- client$channels$get(data$channel_id)
 
   old_message <- channel$messages$get(data$id)
   if (is.null(old_message)) return()
