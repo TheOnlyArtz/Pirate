@@ -1,11 +1,11 @@
 #' A Class which represents a reaction model
 #' @export
 #'
-#' @slot user_id
-#' @slot channel_id
-#' @slot message_id
-#' @slot guild_id
-#' @slot emoji
+#' @slot user_id the id of the user
+#' @slot channel_id the id of the channel_id
+#' @slot message_id the id of the message
+#' @slot guild_id the id of the guild
+#' @slot emoji the emoji used to react
 #' @slot custom whether this is a custom emoji
 Reaction <- function(data, client) {
   value = list(
