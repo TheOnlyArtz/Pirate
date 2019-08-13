@@ -9,16 +9,19 @@
 #' @slot activities user's current activities
 #' @slot client_status user's platform-dependent status
 #'
-Presence <- function(data) {
+Presence <- function(data, guild_id = NULL) {
   value <- list(
     user = data$user, # TODO fetch out of cache
-    roles = data$roles,
+    roles = list(),
     game = data$game,
-    guild_id = data$guild_id,
+    guild_id = NA,
     status = data$status,
     activities = data$activities,
     client_status = data$client_status
   )
+
+  value$guild_id <- if (!is.null(data$guild_id)) data$guild_id else guild_id
+  value$roles <- if (!is.null(data$roles)) data$roles else list()
 
   attr(value, "class") <- "Presence"
   value

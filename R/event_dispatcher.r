@@ -23,6 +23,7 @@ source("R/events_messagedeletebulk.r")
 source("R/events_messagereactionadd.r")
 source("R/events_messagereactionremove.r")
 source("R/events_messagereactionremoveall.r")
+source("R/events_presenceupdate.r")
 
 dispatch <- function(data, client) {
   client$private$set("last_sequence", data$s)
@@ -101,6 +102,9 @@ dispatch <- function(data, client) {
     },
     "MESSAGE_REACTION_REMOVE_ALL"={
       events.message_reaction_remove_all(data$d, client)
+    },
+    "PRESENCE_UPDATE"={
+      events.presence_update(data$d, client)
     },
     {}
   )
