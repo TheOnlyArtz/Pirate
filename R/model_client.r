@@ -1,6 +1,7 @@
 source("R/libraries.r")
 source("R/gateway.r")
 source("R/events_emitter.r")
+source("R/api_manager.r")
 
 #' A Class which represents the Client
 #' @export
@@ -13,6 +14,7 @@ source("R/events_emitter.r")
 #' @slot users The cached users of the Client
 #' @slot presences The cached presences of the Client
 #' @slot emitter The event emitter
+#' @slot api_manager The ApiManager object 
 #' @section Warning:
 #' Do not mutate heartbeat value
 Client <- function(t) {
@@ -25,9 +27,11 @@ Client <- function(t) {
     channels = fastmap(),
     users = fastmap(),
     presences = fastmap(),
-    emitter = NA
+    emitter = NA,
+    api_manager = NA
   )
 
+  value$api_manager = ApiManager(value)
   value$private$set("heartbeat", NA)
   value$private$set("last_sequence", NA)
   value$private$set("session_id", NA)
