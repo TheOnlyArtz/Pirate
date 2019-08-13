@@ -21,6 +21,7 @@ source("R/events_messageupdate.r")
 source("R/events_messagedelete.r")
 source("R/events_messagedeletebulk.r")
 source("R/events_messagereactionadd.r")
+source("R/events_messagereactionremove.r")
 
 dispatch <- function(data, client) {
   client$private$set("last_sequence", data$s)
@@ -93,6 +94,9 @@ dispatch <- function(data, client) {
     },
     "MESSAGE_REACTION_ADD"={
       events.message_reaction_add(data$d, client)
+    },
+    "MESSAGE_REACTION_REMOVE"={
+      events.message_reaction_remove(data$d, client)
     },
     {}
   )
