@@ -1,3 +1,5 @@
+source("R/model_user.r")
+
 #' A Class which represents a message object
 #' @export
 #'
@@ -29,7 +31,7 @@ Message <- function(data, client) {
     channel_id = data$channel_id,
     channel = NA,
     guild_id = data$guild_id,
-    author = data$author,
+    author = NA,
     member = data$member,
     content = data$content,
     timestamp = data$timestamp,
@@ -49,13 +51,8 @@ Message <- function(data, client) {
     application = data$application
   )
 
-  if (isFALSE(is.null(data$channel_id))) {
-    guild <- client$guilds$get(if (isFALSE(is.null(data$guild_id))) data$guild_id else "0")
-    value$channel <- if (is.null(guild))
-    client$direct_channels$get(data$channel_id) else
-    guild$channels$get(data$channel_id)
-  }
-
+  value$channel <- client$channels$get(data$channel_id)
+  value$author <- if (!is.null(client$users$get(data$author$id))) client$users$get(data$author$id) else User(data$author)
   attr(value, "class") <- "Message"
   value
 }
