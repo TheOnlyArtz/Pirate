@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>A Class which represents a guild object — Guild • pirate</title>
+<title>Event, emitted whenever a user updates their presence — events.presence_update • pirate</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,9 @@
 
 
 
-<meta property="og:title" content="A Class which represents a guild object — Guild" />
+<meta property="og:title" content="Event, emitted whenever a user updates their presence — events.presence_update" />
 
-<meta property="og:description" content="A Class which represents a guild object" />
+<meta property="og:description" content="Event, emitted whenever a user updates their presence" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,107 +103,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>A Class which represents a guild object</h1>
-    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/model_guild.r'><code>R/model_guild.r</code></a></small>
-    <div class="hidden name"><code>Guild.Rd</code></div>
+    <h1>Event, emitted whenever a user updates their presence</h1>
+    <small class="dont-index">Source: <a href='https://github.com/TheOnlyArtz/Pirate/blob/master/R/events_presenceupdate.r'><code>R/events_presenceupdate.r</code></a></small>
+    <div class="hidden name"><code>events.presence_update.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>A Class which represents a guild object</p>
+    <p>Event, emitted whenever a user updates their presence</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>Guild</span>(<span class='no'>data</span>, <span class='no'>client</span>)</pre>
-        
-    <h2 class="hasAnchor" id="slots"><a class="anchor" href="#slots"></a>Slots</h2>
+    <pre class="usage"><span class='fu'>events.presence_update</span>(<span class='no'>data</span>, <span class='no'>client</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>client</th>
+      <td><p>The client object</p></td>
+    </tr>
+    <tr>
+      <th>date</th>
+      <td><p>The event fields</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="disclaimer"><a class="anchor" href="#disclaimer"></a>Disclaimer</h2>
 
     
 
-<dl class='dl-horizontal'>
-<dt><code>id</code></dt><dd><p>guild id</p></dd>
-
-<dt><code>name</code></dt><dd><p>guild name (2-100 characters)</p></dd>
-
-<dt><code>icon</code></dt><dd><p>icon hash</p></dd>
-
-<dt><code>splash</code></dt><dd><p>splash hash</p></dd>
-
-<dt><code>owner</code></dt><dd><p>whether or not the user is the owner of the guild</p></dd>
-
-<dt><code>owner_id</code></dt><dd><p>id of owner</p></dd>
-
-<dt><code>permissions</code></dt><dd><p>total permissions for the user in the guild (does not include channel overrides)</p></dd>
-
-<dt><code>region</code></dt><dd><p>voice region id for the guild</p></dd>
-
-<dt><code>afk_channel_id</code></dt><dd><p>id of afk channel</p></dd>
-
-<dt><code>afk_timeout</code></dt><dd><p>afk timeout in seconds</p></dd>
-
-<dt><code>embed_enabled</code></dt><dd><p>is this guild embeddable (e.g. widget)</p></dd>
-
-<dt><code>embed_channel_id</code></dt><dd><p>if not null, the channel id that the widget will generate an invite to</p></dd>
-
-<dt><code>verification_level</code></dt><dd><p>verification level required for the guild</p></dd>
-
-<dt><code>default_message_notifications</code></dt><dd><p>default message notifications level</p></dd>
-
-<dt><code>explicit_content_filter</code></dt><dd><p>explicit content filter level</p></dd>
-
-<dt><code>roles</code></dt><dd><p>roles in the guild</p></dd>
-
-<dt><code>emojis</code></dt><dd><p>custom guild emojis</p></dd>
-
-<dt><code>features</code></dt><dd><p>enabled guild features</p></dd>
-
-<dt><code>mfa_level</code></dt><dd><p>required MFA level for the guild</p></dd>
-
-<dt><code>application_id</code></dt><dd><p>application id of the guild creator if it is bot-created</p></dd>
-
-<dt><code>widget_enabled</code></dt><dd><p>whether or not the server widget is enabled</p></dd>
-
-<dt><code>widget_channel_id</code></dt><dd><p>the channel id for the server widget</p></dd>
-
-<dt><code>system_channel_id</code></dt><dd><p>the id of the channel to which system messages are sent</p></dd>
-
-<dt><code>joined_at</code></dt><dd><p>when this guild was joined at</p></dd>
-
-<dt><code>large</code></dt><dd><p>whether this is considered a large guild</p></dd>
-
-<dt><code>unavailable</code></dt><dd><p>is this guild unavailable</p></dd>
-
-<dt><code>member_count</code></dt><dd><p>total number of members in this guild</p></dd>
-
-<dt><code>voice_stated</code></dt><dd><p>(without the guild_id key)</p></dd>
-
-<dt><code>members</code></dt><dd><p>users in the guild</p></dd>
-
-<dt><code>channels</code></dt><dd><p>channels in the guild</p></dd>
-
-<dt><code>max_presences</code></dt><dd><p>the maximum amount of presences for the guild (the default value, currently 5000, is in effect when null is returned)</p></dd>
-
-<dt><code>max_members</code></dt><dd><p>the maximum amount of members for the guild</p></dd>
-
-<dt><code>vanity_url_code</code></dt><dd><p>the vanity url code for the guild</p></dd>
-
-<dt><code>description</code></dt><dd><p>the description for the guild</p></dd>
-
-<dt><code>banner</code></dt><dd><p>banner hash</p></dd>
-
-<dt><code>premium_tier</code></dt><dd><p>premium_tier (SEE: https://discordapp.com/developers/docs/resources/guild#guild-object-premium-tier)</p></dd>
-
-<dt><code>premium_subscription_count</code></dt><dd><p>the total number of users currently boosting this server</p></dd>
-</dl>
+<p>This event won't return the major argument (user in this case)
+as I still need to figure out an efficient GLOBAL caching system.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='no'>client</span>$<span class='no'>emitter</span>$<span class='fu'>on</span>(<span class='st'>"PRESENCE_UPDATE"</span>, <span class='kw'>function</span>(<span class='no'>old_presence</span>, <span class='no'>new_presence</span>, <span class='no'>differences</span>) {
+ <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='st'>"New status:"</span>, <span class='no'>new_presence</span>$<span class='no'>status</span>, <span class='st'>"Old status:"</span>, <span class='no'>old_presence</span>$<span class='no'>status</span>)
+})
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#slots">Slots</a></li>
-          </ul>
+      <li><a href="#disclaimer">Disclaimer</a></li>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

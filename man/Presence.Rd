@@ -4,7 +4,7 @@
 \alias{Presence}
 \title{A Class which represents a presence object}
 \usage{
-Presence(data)
+Presence(data, guild_id = NULL)
 }
 \description{
 A Class which represents a presence object
