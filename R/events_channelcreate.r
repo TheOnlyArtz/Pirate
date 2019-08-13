@@ -25,10 +25,7 @@ events.channel_create <- function(data, client) {
     if (is.null(guild)) return()
 
     guild$channels$set(channel$id, channel)
-  } else {
-    # Non-GUILD channel
-    client$direct_channels$set(channel$id, channel)
   }
-
+  client$channels$set(channel$id, channel)
   client$emitter$emit("CHANNEL_CREATE", channel)
 }
