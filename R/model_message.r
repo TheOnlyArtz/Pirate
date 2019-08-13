@@ -22,6 +22,7 @@
 #' @slot type type of message
 #' @slot activity sent with Rich Presence-related chat embeds
 #' @slot application sent with Rich Presence-related chat embeds
+#' @import fastmap
 Message <- function(data, client) {
   value = list(
     id = data$id,
@@ -39,7 +40,7 @@ Message <- function(data, client) {
     mention_roles = data$mention_roles,
     attachments = data$attachments,
     embeds = data$embeds,
-    reactions = data$reactions,
+    reactions = fastmap(),
     nonce = data$nonce,
     pinned = data$pinned,
     webhook_id = data$webhook_id,
@@ -48,7 +49,7 @@ Message <- function(data, client) {
     application = data$application
   )
 
-  if (isFALSE(is.null(data$channel_id))) {    
+  if (isFALSE(is.null(data$channel_id))) {
     guild <- client$guilds$get(if (isFALSE(is.null(data$guild_id))) data$guild_id else "0")
     value$channel <- if (is.null(guild))
     client$direct_channels$get(data$channel_id) else
