@@ -4,25 +4,32 @@ source("R/model_guildmember.r")
 #' @param data The event fields
 #' @param client The client object
 #' @examples
-#'
-#'
-#'
-#'
+#'\dontrun{
+#' client$emitter$on("GUILD_MEMBER_UPDATE", function(guild, old_member, new_member) {
+#'  cat("Old nick", old_member$nick, "New:", new_member$nick)
+#' })
+#'}
 #' @section Disclaimer:
 #' This event will return guild id instead of guild object if not cached.
 #' this can be used in order to fetch the guild from the API
+#' AND old_member will return as NA if not cached
+#' @section Differences:
+#' This event will not return differences because it will be too expensive
+#' of an operation.
 events.guild_member_update <- function(data, client) {
   guild <- client$guilds$get(data$guild_id)
   member <- guild$members$get(data$user$id)
+  old_member <- NA
 
-  # print(member)
-  if (is.null(guild) | is.null(member)) return()  # Don't keep on going if not cached
+  if (is.null(guild)) return()  # Don't keep on going if not cached
 
-  # print(data)
-  diff_member = GuildMember(data, client)
-  difference <- data[
-      (!(data %in% diff_member) & (data == "roles" | data == "nick" | data == "user"))
-    ]
+  if (isFALSE(is.null(member))) {
+    old_member <- member
+  }
 
-  print(names(difference))
+  tmp <- GuildMember(data, client)
+  member$nick <- tmp$nick
+  member$roles <- tmp$roles
+
+  client$emitter$emit("GUILD_MEMBER_UPDATE", guild, old_member, member)
 }

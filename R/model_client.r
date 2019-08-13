@@ -1,5 +1,4 @@
-#' @import fastmap
-
+source("R/libraries.r")
 source("R/gateway.r")
 source("R/events_emitter.r")
 
@@ -10,6 +9,7 @@ source("R/events_emitter.r")
 #' @slot user The client's user object
 #' @slot private set of fields you should not touch!
 #' @slot guilds The cached guilds of the Client
+#' @slot direct_channels The cached DMs of the Client
 #' @slot users The cached users of the Client
 #' @slot presences The cached presences of the Client
 #' @slot emitter The event emitter
@@ -18,10 +18,11 @@ source("R/events_emitter.r")
 Client <- function(t) {
   value = list(
     token = t,
-    ws = NULL,
+    ws = NA,
     user = NA,
     private = fastmap(),
     guilds = fastmap(),
+    channels = fastmap(),
     users = fastmap(),
     presences = fastmap(),
     emitter = NA

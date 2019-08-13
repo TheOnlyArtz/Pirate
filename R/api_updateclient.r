@@ -1,4 +1,3 @@
-
 #' A Function which is being used to update the client's presence
 #' @export
 #'
@@ -14,7 +13,6 @@
 #' @examples
 #' \dontrun{update.presence(client, list(game=list(name="Hey!", type=0)))}
 #' \dontrun{update.presence(client, list(game=list(name="Streaming!", type=1, url="https://twitch.tv/theonlyartz")))}
-#' @import rjson
 updates.presence <- function(client, presence) {
   payload <- list(
     op = 3,
@@ -26,6 +24,5 @@ updates.presence <- function(client, presence) {
   if (is.null(presence$since)) payload$d$since <- NA
 
   json <- toJSON(payload)
-  cat(json)
   client$ws$send(json)
 }

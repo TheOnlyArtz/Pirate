@@ -1,5 +1,3 @@
-#' @import websocket
-
 source("R/request_identify.r")
 source("R/request_resume.r")
 source("R/event_handler.r")
@@ -17,7 +15,8 @@ connect <- function(client) {
   start_connection(client)
 }
 
-start_connection <- function(client, should_resume = FALSE) {
+start_connection <- function(client, reconnecting = FALSE, should_resume = FALSE) {
+  client$private$set("reconnecting", reconnecting)
   client$ws = WebSocket$new(
    "wss://gateway.discord.gg/?v=6&encoding=json",
    autoConnect = FALSE
@@ -33,10 +32,10 @@ start_connection <- function(client, should_resume = FALSE) {
   client$ws$onClose(function(event) {
     only_reconnect = event$code == 4000 | event$code == 4007 | event$code == 4009
     if (only_reconnect) {
-      start_connection(client)
+      start_connection(client, TRUE, FALSE)
     } else {
       cat("Resume")
-      start_connection(client, TRUE)
+      start_connection(client, TRUE, TRUE)
     }
   })
 

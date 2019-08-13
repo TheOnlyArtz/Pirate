@@ -22,6 +22,8 @@ A Class which represents the Client
 
 \item{\code{guilds}}{The cached guilds of the Client}
 
+\item{\code{direct_channels}}{The cached DMs of the Client}
+
 \item{\code{users}}{The cached users of the Client}
 
 \item{\code{presences}}{The cached presences of the Client}

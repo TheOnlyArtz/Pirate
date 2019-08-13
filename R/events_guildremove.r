@@ -1,4 +1,4 @@
-#' whenever a guild becomes unavilable or the bot has been removed from there
+#' Event, whenever a guild becomes unavilable or the bot has been removed from there
 #' @param data The guild object (partial)
 #' @param client The client object
 #' @examples

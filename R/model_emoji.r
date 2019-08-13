@@ -1,4 +1,3 @@
-
 #' A Class which represents a guild emoji object
 #' @export
 #'
@@ -10,7 +9,6 @@
 #' @slot managed whether this emoji is managed
 #' @slot animated whether this emoji is animated
 #' @slot guild_id the guild_id this emoji belongs to
-#' @import fastmap
 Emoji <- function(data, guild) {
   value <- list(
     id = data$id,

@@ -134,15 +134,23 @@
     
 
 <p>This event will return guild id instead of guild object if not cached.
-this can be used in order to fetch the guild from the API</p>
+this can be used in order to fetch the guild from the API
+AND old_member will return as NA if not cached</p>
+    
+    <h2 class="hasAnchor" id="differences"><a class="anchor" href="#differences"></a>Differences</h2>
+
+    
+
+<p>This event will not return differences because it will be too expensive
+of an operation.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-
-
-
-</div></pre>
+    <pre class="examples"><span class='co'># NOT RUN {</span>
+<span class='no'>client</span>$<span class='no'>emitter</span>$<span class='fu'>on</span>(<span class='st'>"GUILD_MEMBER_UPDATE"</span>, <span class='kw'>function</span>(<span class='no'>guild</span>, <span class='no'>old_member</span>, <span class='no'>new_member</span>) {
+ <span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span>(<span class='st'>"Old nick"</span>, <span class='no'>old_member</span>$<span class='no'>nick</span>, <span class='st'>"New:"</span>, <span class='no'>new_member</span>$<span class='no'>nick</span>)
+})
+<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -150,6 +158,8 @@ this can be used in order to fetch the guild from the API</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#disclaimer">Disclaimer</a></li>
+
+      <li><a href="#differences">Differences</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

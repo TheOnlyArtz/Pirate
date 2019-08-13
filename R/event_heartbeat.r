@@ -7,7 +7,11 @@ heartbeat <- function (delay, client) {
   )
   client$ws$send(toJSON(data))
 
-  later::later(function () {
-    heartbeat(delay, client)
-  }, delay / 1000) # Spawn on a separate thread
+  if (isTRUE(client$private$get("reconnecting"))) {
+    client$private$set("reconnecting", FALSE)
+  } else {
+    later::later(function () {
+      heartbeat(delay, client)
+    }, delay / 1000) # Spawn on a separate thread SIKE R is single threaded
+  }
 }

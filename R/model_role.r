@@ -9,7 +9,8 @@
 #' @slot permissions permissions bit set
 #' @slot managed whether this role is managed by an integration
 #' @slot mentionable whether this role is mentionable
-Role <- function(data) {
+#' @slot guild_id The guild this role belongs to
+Role <- function(data, guild) {
   value <- list(
     id = data$id,
     name = data$name,
@@ -18,7 +19,8 @@ Role <- function(data) {
     position = data$position,
     managed = data$managed,
     mentionable = data$mentionable,
-    permissions = data$permissions
+    permissions = data$permissions,
+    guild_id = guild$id
   )
 
   attr(value, "class") <- "Role"

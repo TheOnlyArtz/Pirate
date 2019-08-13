@@ -18,11 +18,19 @@ Event, emits whenever a member updates it's state
 
 This event will return guild id instead of guild object if not cached.
 this can be used in order to fetch the guild from the API
+AND old_member will return as NA if not cached
+}
+
+\section{Differences}{
+
+This event will not return differences because it will be too expensive
+of an operation.
 }
 
 \examples{
-
-
-
-
+\dontrun{
+client$emitter$on("GUILD_MEMBER_UPDATE", function(guild, old_member, new_member) {
+ cat("Old nick", old_member$nick, "New:", new_member$nick)
+})
+}
 }

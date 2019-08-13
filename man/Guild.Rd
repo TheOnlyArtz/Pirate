@@ -4,7 +4,7 @@
 \alias{Guild}
 \title{A Class which represents a guild object}
 \usage{
-Guild(data)
+Guild(data, client)
 }
 \description{
 A Class which represents a guild object

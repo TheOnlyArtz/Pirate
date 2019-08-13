@@ -14,13 +14,14 @@ events.guild_member_remove <- function(data, client) {
   guild <- client$guilds$get(data$guild_id)
   member <- guild$members$get(data$user$id)
 
-  if (is.null(member)) member <- GuildMember(data)
-  
-  if (is.null(guild)) {
+   if (is.null(member)) member <- GuildMember(data, client)
+
+   if (is.null(guild)) {
     guild <- data$guild_id
   } else {
     guild$members$set(member$user$id, member)
   }
 
-  client$emitter$emit("GUILD_MEMBER_REMOVE", guild, member)
+   guild$member_count <- guild$member_count + 1
+   client$emitter$emit("GUILD_MEMBER_REMOVE", guild, member)
 }

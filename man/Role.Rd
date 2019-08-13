@@ -4,7 +4,7 @@
 \alias{Role}
 \title{A Class which represents a role object (exists in guilds only)}
 \usage{
-Role(data)
+Role(data, guild)
 }
 \description{
 A Class which represents a role object (exists in guilds only)
@@ -27,5 +27,7 @@ A Class which represents a role object (exists in guilds only)
 \item{\code{managed}}{whether this role is managed by an integration}
 
 \item{\code{mentionable}}{whether this role is mentionable}
+
+\item{\code{guild_id}}{The guild this role belongs to}
 }}
 

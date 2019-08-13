@@ -1,5 +1,3 @@
-#' @import fastmap
-
 source("R/model_guildmember.r")
 source("R/model_role.r")
 source("R/model_emoji.r")
@@ -47,7 +45,7 @@ source("R/model_presence.r")
 #' @slot banner banner hash
 #' @slot premium_tier premium_tier (SEE: https://discordapp.com/developers/docs/resources/guild#guild-object-premium-tier)
 #' @slot premium_subscription_count the total number of users currently boosting this server
-Guild <- function(data) {
+Guild <- function(data, client) {
   value <- list(
     id = data$id,
     name = data$name,
@@ -87,11 +85,19 @@ Guild <- function(data) {
     premium_subscription_count = data$premium_subscription_count
   )
 
-  lapply(data$members, function(mem) value$members$set(mem$user$id, GuildMember(mem, client)))
-  lapply(data$roles, function(role) value$roles$set(role$id, Role(role)))
+  lapply(data$members, function(mem) {
+    member <- GuildMember(mem, client)
+    value$members$set(mem$user$id, member)
+    client$users$set(mem$user$id, member$user)
+  })
+  lapply(data$roles, function(role) value$roles$set(role$id, Role(role, value)))
   lapply(data$emojis, function(emoji) value$emojis$set(emoji$id, Emoji(emoji, value)))
-  lapply(data$channels, function(channel) value$channels$set(channel$id, Channel(channel)))
-  lapply(data$presences, function(presence) client$presences$set(presence$user$id, Presence(presence)))
+  lapply(data$channels, function(chan) {
+    channel <- Channel(chan)
+    value$channels$set(channel$id, channel)
+    client$channels$set(channel$id, channel)
+  })
+  lapply(data$presences, function(presence) client$presences$set(presence$user$id, Presence(presence, value$id)))
 
   attr(value, "class") <- "Guild"
   value
