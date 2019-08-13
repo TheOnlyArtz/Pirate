@@ -23,7 +23,6 @@ Client <- function(t) {
     private = fastmap(),
     guilds = fastmap(),
     channels = fastmap(),
-    direct_channels = fastmap(),
     users = fastmap(),
     presences = fastmap(),
     emitter = NA
