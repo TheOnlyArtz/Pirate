@@ -22,6 +22,7 @@ Client <- function(t) {
     user = NA,
     private = fastmap(),
     guilds = fastmap(),
+    channels = fastmap(),
     direct_channels = fastmap(),
     users = fastmap(),
     presences = fastmap(),

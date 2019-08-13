@@ -5,7 +5,7 @@ source("R/model_guild.r")
 #' @param client The client object
 events.guild_create <- function(data, client) {
   new <- isFALSE(client$guilds$has(data$id))
-  guild <- Guild(data)
+  guild <- Guild(data, client)
   client$guilds$set(data$id, guild)
 
   if (new)
