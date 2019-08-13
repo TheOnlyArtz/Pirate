@@ -24,6 +24,7 @@ source("R/events_messagereactionadd.r")
 source("R/events_messagereactionremove.r")
 source("R/events_messagereactionremoveall.r")
 source("R/events_presenceupdate.r")
+source("R/events_typingstart.r")
 
 dispatch <- function(data, client) {
   client$private$set("last_sequence", data$s)
@@ -105,6 +106,9 @@ dispatch <- function(data, client) {
     },
     "PRESENCE_UPDATE"={
       events.presence_update(data$d, client)
+    },
+    "TYPING_START"={
+      events.typing_start(data$d, client)
     },
     {}
   )
