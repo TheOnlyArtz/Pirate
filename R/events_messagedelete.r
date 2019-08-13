@@ -1,3 +1,5 @@
+source("R/utils.r")
+
 #' Event, emitted whenever a message is being deleted
 #' @param data The event fields
 #' @param client The client object
@@ -8,10 +10,8 @@
 #'})
 #'}
 events.message_delete <- function(data, client) {
-  guild <- client$guilds$get(if (isFALSE(is.null(data$guild_id))) data$guild_id else "0")
-  channel <- if (is.null(guild))
-    client$direct_channels$get(data$channel_id) else
-    guild$channels$get(data$channel_id)
+  channel <- find_channel(client, data$guild_id, data$channel_id)
+
 
   if (is.null(channel)) return()
 
