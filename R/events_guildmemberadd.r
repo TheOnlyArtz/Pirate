@@ -21,5 +21,6 @@ events.guild_member_add <- function(data, client) {
     guild$members$set(member$user$id, member)
   }
 
+  guild$member_count <- guild$member_count + 1
   client$emitter$emit("GUILD_MEMBER_ADD", guild, member)
 }
